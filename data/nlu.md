@@ -1,55 +1,65 @@
 ## intent:greet
-- hey
-- hello
-- hi
-- good morning
-- good evening
-- hey there
+- hæ
+- halló
+- hæ hæ
+- góðan daginn
+- góðan dag
+- gott kvöld
+- góða kvöldið
+- hæ hæ
+- sæll
+- sæl
+- sælar
+- sælir
+- blessuð
+- blessaður
 
 ## intent:goodbye
-- bye
-- goodbye
-- see you around
-- see you later
+- bæ
+- bæ-bæ
+- bless
+- bless bless
+- sjáumst
+- sé þig seinna
+- hafðu það gott
 
 ## intent:affirm
-- yes
-- indeed
-- of course
-- that sounds good
-- correct
+- já
+- já mjög
+- einmitt
+- auðvitað
+- það hljómar vel
+- rétt
 
 ## intent:deny
-- no
-- never
-- I don't think so
-- don't like that
-- no way
-- not really
+- nei
+- aldrei
+- Ég held ekki
+- Þetta er ekki gott
+- ekki sjens
+- eiginlega ekki
 
 ## intent:mood_great
-- perfect
-- very good
-- great
-- amazing
-- wonderful
-- I am feeling very good
-- I am great
-- I'm good
+- fínt
+- allt gott
+- Mér líður mjög vel
+- Ég segi allt fínt
+- Ég er góð/ur
 
 ## intent:mood_unhappy
-- sad
-- very sad
-- unhappy
-- bad
-- very bad
-- awful
-- terrible
-- not very good
-- extremely sad
-- so sad
+- mér líður illa
+- ég er óánægð/ur
+- slæmt
+- mjög slæmt
+- hræðilegt
+- ekki gott
 
 ## intent:bot_challenge
+- ertu spjallyrki?
+- ertu botti?
+- ertu manneskja?
+- er ég að tala við botta?
+- er ég að tala við manneskju?
 - are you a bot?
 - are you a human?
 - am I talking to a bot?
