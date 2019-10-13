@@ -6,9 +6,15 @@ intents:
 - mood_great
 - mood_unhappy
 - bot_challenge
+- thankyou
+- inform
+- opening_hours
+entities:
+- location
+- hours
 templates:
   utter_greet:
-  - text: Hæ! Hvernig hefurðu það?
+  - text: Hæ! Hvað get ég gert fyrir þig?
   utter_cheer_up:
   - text: 'Hér er eitthvað til að hressa þig við:'
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -17,10 +23,14 @@ templates:
   utter_happy:
   - text: Flott, áfram svona!
   utter_goodbye:
-  - text: Bye
-  - text: Bæ
+  - text: Bæ!
   utter_iamabot:
   - text: Ég er botti, hannaður með Rasa.
+  utter_noworries:
+  - text: Það var lítið!
+  - text: Ekkert mál!
+  utter_openinghours:
+  - text: Það er opið virka daga 09:00–16:00.
 actions:
 - utter_greet
 - utter_cheer_up
@@ -28,3 +38,5 @@ actions:
 - utter_happy
 - utter_goodbye
 - utter_iamabot
+- utter_noworries
+- utter_openinghours

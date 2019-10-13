@@ -29,3 +29,11 @@
 ## bot challenge
 * bot_challenge
   - utter_iamabot
+
+## opening hours
+* greet
+  - utter_greet
+* opening_hours
+  - utter_openinghours
+* thankyou
+  - utter_noworries
