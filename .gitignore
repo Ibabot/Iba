@@ -4,6 +4,10 @@ build
 npm-debug.log
 .env
 .DS_Store
+codealike.json
+
+# This is to avoid too many duplicates. Remove if necessary.
+models/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
