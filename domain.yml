@@ -7,10 +7,12 @@ intents:
 - mood_unhappy
 - bot_challenge
 - query_knowledge_base
+- bank_data
 entities:
   - object_type
   - mention
   - attribute
+  - bank
 slots:
   object_type:
     type: unfeaturized
