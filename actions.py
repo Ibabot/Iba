@@ -1,3 +1,5 @@
+from rasa_sdk.knowledge_base.storage import InMemoryKnowledgeBase
+from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
 # This files contains your custom actions which can be used to run
 # custom Python code.
 #
