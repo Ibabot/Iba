@@ -64,3 +64,14 @@
 - are you a human?
 - am I talking to a bot?
 - am I talking to a human?
+
+## intent:bank_data
+- Hvað eru [opnunartímar](attribute:opening_hours) í [Kópavogi](object_type:bank)?
+- Hvað eru [opnunartímar](attribute:opening_hours) í [Garðabæ](object_type:bank)?
+- Hvað eru [opnunartímar](attribute:opening_hours) í [Reykjavík](object_type:bank)?
+- Hvað eru [opnunartímar](attribute:opening_hours) í [Hafnarfirði](object_type:bank)?
+
+
+## synonym:opening_hours
+- opnunartímar
+- afgreiðslutímar

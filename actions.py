@@ -4,6 +4,10 @@
 # See this guide on how to implement these action:
 # https://rasa.com/docs/rasa/core/actions/#custom-actions/
 
+class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
+    def __init__(self):
+        knowledge_base = InMemoryKnowledgeBase("bank_data.json")
+        super().__init__(knowledge_base)
 
 # This is a simple example for a custom action which utters "Hello World!"
 

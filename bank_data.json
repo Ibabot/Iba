@@ -1,0 +1,50 @@
+{
+    "bank": [
+        {
+            "id": 0,
+            "name": "Granda",
+            "address": "Fiskislóð 10",
+            "location": "Reykjavík",
+            "postcode": "101",
+            "atm": true,
+            "opening_hours": "09:00-16:00"
+        },
+        {
+            "id": 1,
+            "name": "Laugardal",
+            "address": "Suðurlandsbraut 14",
+            "location": "Reykjavík",
+            "postcode": "108",
+            "atm": true,
+            "opening_hours": "09:00-16:00"
+        },
+        {
+            "id": 2,
+            "name": "Höfða",
+            "address": "Höfðabakka 9",
+            "location": "Reykjavík",
+            "postcode": "110",
+            "atm": true,
+            "opening_hours": "09:00-16:00"
+        },
+        {
+            "id": 3,
+            "name": "Norðurturni",
+            "address": "Hagasmára 3",
+            "location": "Kópavogur",
+            "postcode": "201",
+            "atm": true,
+            "opening_hours": "09:00-16:00"
+        },
+        {
+            "id": 4,
+            "name": "Hafnarfirði",
+            "address": "Strandgötu 8-10",
+            "location": "Hafnarfjörður",
+            "postcode": "220",
+            "atm": true,
+            "opening_hours": "09:00-16:00"
+        }
+    ]
+}
+

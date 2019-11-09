@@ -4,6 +4,14 @@
 * mood_great
   - utter_happy
 
+## opening hours
+* greet
+  - utter_greet
+* query_knowledge_base
+  - action_query_knowledge_base
+* goodbye
+  - utter_goodbye
+
 ## sad path 1
 * greet
   - utter_greet
