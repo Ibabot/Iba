@@ -65,13 +65,20 @@
 - am I talking to a bot?
 - am I talking to a human?
 
-## intent:bank_data
+## intent:query_knowledge_base
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Kópavogi](object_type:bank)?
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Garðabæ](object_type:bank)?
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Reykjavík](object_type:bank)?
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Hafnarfirði](object_type:bank)?
-
+- Hvaða [bank](object_type:bank) eru í [Reykjavík](location)?
 
 ## synonym:opening_hours
 - opnunartímar
 - afgreiðslutímar
+
+## lookup:bank
+- Granda
+- Laugardal
+- Höfða
+- Norðurturni
+- Hafnarfirði

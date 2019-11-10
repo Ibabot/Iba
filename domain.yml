@@ -13,12 +13,23 @@ entities:
 - mention
 - attribute
 - bank
+- location
 slots:
+  address:
+    type: unfeaturized
   attribute:
+    type: unfeaturized
+  bank:
+    type: unfeaturized
+  location:
     type: unfeaturized
   mention:
     type: unfeaturized
   object_type:
+    type: unfeaturized
+  opening_hours:
+    type: unfeaturized
+  postcode:
     type: unfeaturized
 templates:
   utter_greet:
