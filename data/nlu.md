@@ -66,10 +66,10 @@
 - am I talking to a human?
 
 ## intent:query_knowledge_base
-- Hvað eru [opnunartímar](attribute:opening_hours) í [Kópavogi](object_type:bank)?
-- Hvað eru [opnunartímar](attribute:opening_hours) í [Garðabæ](object_type:bank)?
-- Hvað eru [opnunartímar](attribute:opening_hours) í [Reykjavík](object_type:bank)?
-- Hvað eru [opnunartímar](attribute:opening_hours) í [Hafnarfirði](object_type:bank)?
+- Hvað eru [opnunartímar](opening_hours) í [Norðurturni](object_type:bank)?
+- Hvað eru [opnunartímar](opening_hours) í [Granda](object_type:bank)?
+- Hvað eru [opnunartímar](opening_hours) í [Reykjavík](object_type:bank)?
+- Hvað eru [opnunartímar](opening_hours) í [Hafnarfirði](object_type:bank)?
 - Hvaða [bank](object_type:bank) eru í [Reykjavík](location)?
 
 ## synonym:opening_hours

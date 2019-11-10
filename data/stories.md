@@ -12,6 +12,10 @@
 * goodbye
   - utter_goodbye
 
+## opening hours 1
+* query_knowledge_base
+  - action_query_knowledge_base
+
 ## sad path 1
 * greet
   - utter_greet
