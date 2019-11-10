@@ -1,3 +1,13 @@
+#Node
+node_modules
+build
+npm-debug.log
+.env
+.DS_Store
+
+# This is to avoid too many duplicates. Remove if necessary.
+models/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
