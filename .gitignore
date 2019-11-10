@@ -6,9 +6,9 @@ npm-debug.log
 .DS_Store
 codealike.json
 
-# This is to avoid too many duplicates. Remove if necessary.
+# Rasa
 models/*
-
+*.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

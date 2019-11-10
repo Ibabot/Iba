@@ -9,16 +9,16 @@ intents:
 - query_knowledge_base
 - bank_data
 entities:
-  - object_type
-  - mention
-  - attribute
-  - bank
+- object_type
+- mention
+- attribute
+- bank
 slots:
-  object_type:
+  attribute:
     type: unfeaturized
   mention:
     type: unfeaturized
-  attribute:
+  object_type:
     type: unfeaturized
 templates:
   utter_greet:
@@ -43,6 +43,3 @@ actions:
 - utter_happy
 - utter_goodbye
 - utter_iamabot
-utter_ask_rephrase:
-- text: "Fyrirgefðu, ég skil þig ekki alveg. Getur þú endurorðað þetta?"
-- text: "Getur þú endurorðað þetta? Ég náði þessu ekki alveg."
