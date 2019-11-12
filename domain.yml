@@ -7,11 +7,24 @@ intents:
 - mood_unhappy
 - bot_challenge
 - thankyou
-- inform
-- opening_hours
+- query_knowledge_base
+- handleinsult
+- ask_languagesbot
+- ask_howdoing
+- ask_builder
+- thank you
 entities:
-- location
-- hours
+- object_type
+- mention
+- attribute
+- city
+slots:
+  attribute:
+    type: unfeaturized
+  mention:
+    type: unfeaturized
+  object_type:
+    type: unfeaturized
 templates:
   utter_greet:
   - text: Hæ! Hvað get ég gert fyrir þig?
@@ -29,9 +42,11 @@ templates:
   utter_noworries:
   - text: Það var lítið!
   - text: Ekkert mál!
-  utter_openinghours:
-  - text: Það er opið virka daga 09:00–16:00.
+  utter_ask_rephrase:
+  - text: Sorry, I'm not sure I understand. Could you rephrase it?
+  - text: Could you please rephrase your message? I didn't quite get that.
 actions:
+- action_query_knowledge_base
 - utter_greet
 - utter_cheer_up
 - utter_did_that_help
@@ -39,4 +54,3 @@ actions:
 - utter_goodbye
 - utter_iamabot
 - utter_noworries
-- utter_openinghours
