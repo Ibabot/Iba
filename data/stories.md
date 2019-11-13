@@ -12,7 +12,7 @@
 * goodbye
   - utter_goodbye
 
-## opening hours 1
+## query attribute
 * query_knowledge_base
   - action_query_knowledge_base
 

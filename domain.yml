@@ -47,6 +47,9 @@ templates:
   - text: Bæ
   utter_iamabot:
   - text: Ég er botti, hannaður með Rasa.
+  utter_ask_rephrase:
+  - text: "Sorry, I'm not sure I understand. Could you rephrase it?"
+  - text: "Could you please rephrase your message? I didn't quite get that."
 actions:
 - action_query_knowledge_base
 - utter_greet
@@ -55,3 +58,4 @@ actions:
 - utter_happy
 - utter_goodbye
 - utter_iamabot
+- utter_ask_rephrase

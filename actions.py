@@ -1,5 +1,6 @@
 from rasa_sdk.knowledge_base.storage import InMemoryKnowledgeBase
 from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
+
 # This files contains your custom actions which can be used to run
 # custom Python code.
 #
@@ -9,7 +10,14 @@ from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
 class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
     def __init__(self):
         knowledge_base = InMemoryKnowledgeBase("bank_data.json")
+
+        knowledge_base.set_representation_function_of_object(
+            "bank", lambda obj: obj["name"] + " (" + obj["location"] + ")"
+        )
+
         super().__init__(knowledge_base)
+
+   
 
 # This is a simple example for a custom action which utters "Hello World!"
 

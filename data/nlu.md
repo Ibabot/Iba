@@ -66,15 +66,13 @@
 - am I talking to a human?
 
 ## intent:query_knowledge_base
-- Hvað eru [opnunartímar](opening_hours) í [Norðurturni](object_type:bank)?
-- Hvað eru [opnunartímar](opening_hours) í [Granda](object_type:bank)?
-- Hvað eru [opnunartímar](opening_hours) í [Reykjavík](object_type:bank)?
-- Hvað eru [opnunartímar](opening_hours) í [Hafnarfirði](object_type:bank)?
-- Hvaða [bank](object_type:bank) eru í [Reykjavík](location)?
-
-## synonym:opening_hours
-- opnunartímar
-- afgreiðslutímar
+- Hvað eru [opnunartímar](attribute:opening_hours) í [Norðurturni](bank)?
+- Hvað eru [opnunartímar](attribute:opening_hours) í [Granda](bank)?
+- Hvað eru [opnunartímar](attribute:opening_hours) í [Laugardal](bank)?
+- Hvað eru [opnunartímar](attribute:opening_hours) í [Hafnarfirði](bank)?
+- Hvaða [bankar](object_type:bank) eru í [Reykjavík](location)?
+- Hvaða [bankar](object_type:bank) eru í [Kópavogi](location:Kópavogur)?
+- Hvaða [útibú](object_type:bank) eru í [Hafnarfirði](location:Hafnarfjörður)?
 
 ## lookup:bank
 - Granda
@@ -82,3 +80,18 @@
 - Höfða
 - Norðurturni
 - Hafnarfirði
+
+## synonym:bank
+- bankar
+- útibú
+- banki 
+
+## synonym:opening_hours
+- Opnunartímar
+- Opið
+
+## lookup:location
+ - Reykjavík
+ - Kópavogur
+ - Hafnarfjörður
+
