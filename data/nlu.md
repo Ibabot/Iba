@@ -1,12 +1,3 @@
-## intent:query_knowledge_base
-- Sýndu mér [banka](object_type:bank) á höfuðborgarsvæðinu
-- Hvaða [bankar](object_type:bank) eru í [Reykjavík](city)?
-- Hvaða [bankar](object_type:bank) eru í [Reykjavík](attribute:Reykjavík)?
-- Hvaða [bankar](object_type:bank) eru í [Reykjavík](attribute:city)?
-- Hvaða bankar eru í [Reykjavík](city)?
-- Hvaða bankar eru í [Reykjavík](attribute:Reykjavík)?
-- Hvaða bankar eru í [Reykjavík](attribute:city)?
-
 ## intent:greet
 - hæ
 - halló

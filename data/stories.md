@@ -1,13 +1,3 @@
-## opening hours 1
-* greet
-  - utter_greet
-* query_knowledge_base
-  - action_query_knowledge_base
-
-## opening hours 2
-* query_knowledge_base
-  - action_query_knowledge_base
-
 ## happy path
 * greet
   - utter_greet
