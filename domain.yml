@@ -5,13 +5,12 @@ intents:
 - deny
 - mood_great
 - mood_unhappy
-- bot_challenge
 - thankyou
-- inform
-- opening_hours
-entities:
-- location
-- hours
+- bot_challenge
+- ask_how_doing
+- ask_builder
+- handle_insult
+- ask_languages_bot
 templates:
   utter_greet:
   - text: Hæ! Hvað get ég gert fyrir þig?
@@ -29,8 +28,16 @@ templates:
   utter_noworries:
   - text: Það var lítið!
   - text: Ekkert mál!
-  utter_openinghours:
-  - text: Það er opið virka daga 09:00–16:00.
+  utter_ask_how_doing:
+  - text: Ég er góð/ur, takk!
+  - text: Ég segi allt fínt.
+  - text: Allt gott
+  utter_ask_builder:
+  - text: Nemendur úr HR!
+  utter_handle_insult:
+  - text: Þetta var ekki fallegt 😢
+  utter_ask_languagesbot:
+  - text: Ég tala bara íslensku eins og er.
 actions:
 - utter_greet
 - utter_cheer_up
@@ -39,4 +46,7 @@ actions:
 - utter_goodbye
 - utter_iamabot
 - utter_noworries
-- utter_openinghours
+- utter_ask_how_doing
+- utter_ask_builder
+- utter_handle_insult
+- utter_ask_languagesbot

@@ -62,7 +62,7 @@
 - er ég að tala við botta?
 - er ég að tala við manneskju?
 
-## intent:thank you
+## intent:thankyou
 - takk
 - þakka þér
 - Þakka þér kærlega
@@ -77,7 +77,7 @@
 - flott, takk
 - flott, takk fyrir
 
-## intent:ask_howdoing
+## intent:ask_how_doing
 - Hvernig ertu í húðinni?
 - Áttu frábæran dag?
 - áttu góðan dag
@@ -184,7 +184,7 @@
 - þú ert að vinna hjá hvaða fyrirtæki?
 - Veistu hver bjó þig til?
 
-## intent:handleinsult
+## intent:handle_insult
 - allt í lagi þegiðu
 - barn veit meira en þú
 - Ég get ekki trúað því hversu heimskur þú ert
@@ -238,7 +238,7 @@
 - Þú veist ekkert.
 - tík
 
-## intent:ask_languagesbot
+## intent:ask_languages_bot
 - Á hvaða tungumálum er hægt að tala?
 - getur þú talað pólsku?
 - Getur þú talað fleiri en eitt tungumál?
