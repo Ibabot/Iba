@@ -5,7 +5,12 @@ intents:
 - deny
 - mood_great
 - mood_unhappy
+- thankyou
 - bot_challenge
+- ask_how_doing
+- ask_builder
+- handle_insult
+- ask_languages_bot
 - query_knowledge_base
 - bank_data
 entities:
@@ -34,7 +39,7 @@ slots:
     type: unfeaturized
 templates:
   utter_greet:
-  - text: Hæ! Hvernig hefurðu það?
+  - text: Hæ! Hvað get ég gert fyrir þig?
   utter_cheer_up:
   - text: 'Hér er eitthvað til að hressa þig við:'
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -43,13 +48,25 @@ templates:
   utter_happy:
   - text: Flott, áfram svona!
   utter_goodbye:
-  - text: Bye
-  - text: Bæ
+  - text: Bæ!
   utter_iamabot:
   - text: Ég er botti, hannaður með Rasa.
   utter_ask_rephrase:
-  - text: "Sorry, I'm not sure I understand. Could you rephrase it?"
-  - text: "Could you please rephrase your message? I didn't quite get that."
+  - text: Sorry, I'm not sure I understand. Could you rephrase it?
+  - text: Could you please rephrase your message? I didn't quite get that.
+  utter_noworries:
+  - text: Það var lítið!
+  - text: Ekkert mál!
+  utter_ask_how_doing:
+  - text: Ég er góð/ur, takk!
+  - text: Ég segi allt fínt.
+  - text: Allt gott
+  utter_ask_builder:
+  - text: Nemendur úr HR!
+  utter_handle_insult:
+  - text: Þetta var ekki fallegt 😢
+  utter_ask_languagesbot:
+  - text: Ég tala bara íslensku eins og er.
 actions:
 - action_query_knowledge_base
 - utter_greet
@@ -59,3 +76,8 @@ actions:
 - utter_goodbye
 - utter_iamabot
 - utter_ask_rephrase
+- utter_noworries
+- utter_ask_how_doing
+- utter_ask_builder
+- utter_handle_insult
+- utter_ask_languagesbot

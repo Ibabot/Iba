@@ -34,6 +34,10 @@
 * deny
   - utter_goodbye
 
+## story thankyou
+* thankyou
+    - utter_noworries
+
 ## say goodbye
 * goodbye
   - utter_goodbye
@@ -41,3 +45,19 @@
 ## bot challenge
 * bot_challenge
   - utter_iamabot
+
+## ask how doing
+* ask_how_doing
+  - utter_ask_how_doing
+
+## ask builder
+* ask_builder
+  - utter_ask_builder
+
+## handle insult
+* handle_insult
+  - utter_handle_insult
+
+## ask languages bot
+* ask_languages_bot
+  - utter_ask_languagesbot
