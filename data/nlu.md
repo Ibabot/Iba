@@ -72,7 +72,7 @@
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Hafnarfirði](bank)?
 - Hvaða [bankar](object_type:bank) eru í [Reykjavík](location)?
 - Hvaða [bankar](object_type:bank) eru í [Kópavogi](location:Kópavogur)?
-- Hvaða [útibú](object_type:bank) eru í [Hafnarfirði](location:Hafnarfjörður)?
+- Hvaða [útibú](object_type:bank) eru í [Hafnarfjörður](location:Hafnarfjörður)?
 
 ## lookup:bank
 - Granda
@@ -94,4 +94,3 @@
  - Reykjavík
  - Kópavogur
  - Hafnarfjörður
-
