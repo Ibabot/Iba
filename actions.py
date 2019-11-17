@@ -50,59 +50,40 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                     )
                 )
 
-    # def utter_objects(
-    #         self,
-    #         dispatcher: CollectingDispatcher,
-    #         object_type: Text,
-    #         objects: List[Dict[Text, Any]],
-    #         attributes: List[Dict[Text, Text]]
-    #     ) -> None:
-    #         """
-    #         Utters a response to the user that lists all found objects.
-    #         Args:
-    #             dispatcher: the dispatcher
-    #             object_type: the object type
-    #             objects: the list of objects
-    #         """
-    #         if not attributes or len(attributes)==0:
-    #             dispatcher.utter_message(
-    #                 "Ég skil ekki hvað þú ert að biðja um, reyndu aftur"
-    #             )
-    #             return
-    #         else:
-    #             dispatcher.utter_message("Eftirtaldir bankar eru á þessu svæði:")
-    #             for attribute in attributes:
-    #                 synfound = False
-    #                 for attribute_syn_list in self.knowledge_base.attribute_syn:
-    #                     if attribute["name"] in attribute_syn_list:  
-    #                         synfound = True
-    #                         synlist = []
-    #                         for syn in attribute_syn_list:
-    #                             synlist.append(syn)
-    #                         dispatcher.utter_message(("{}: {}".format(",".join(synlist), attribute["value"])))
-    #                 if not synfound:
-    #                     dispatcher.utter_message(("{}: {}".format(attribute["name"], attribute["value"])))
+    def utter_objects(
+            self,
+            dispatcher: CollectingDispatcher,
+            object_type: Text,
+            objects: List[Dict[Text, Any]],
+        ) -> None:
+            """
+            Utters a response to the user that lists all found objects.
+            Args:
+                dispatcher: the dispatcher
+                object_type: the object type
+                objects: the list of objects
+            """
+          
+            if objects:
+                if (len(objects)==25):
+                    dispatcher.utter_message(
+                    "Það voru margar niðurstöður, hérna koma fyrstu 25"
+                    )
+                else:
+                    dispatcher.utter_message(
+                    "Hér eru niðurstöðurnar:"
+                    )
 
-    #         if objects:
-    #             if (len(objects)==25):
-    #                 dispatcher.utter_message(
-    #                 "Það voru margar niðurstöður, hérna koma fyrstu 25"
-    #                 )
-    #             else:
-    #                 dispatcher.utter_message(
-    #                 "Hér eru niðurstöðurnar:"
-    #                 )
+                repr_function = self.knowledge_base.get_representation_function_of_object(
+                    object_type
+                )
 
-    #             repr_function = self.knowledge_base.get_representation_function_of_object(
-    #                 object_type
-    #             )
-
-    #             for i, obj in enumerate(objects, 1):
-    #                 dispatcher.utter_message("{}: {}".format(i, repr_function(obj)))
-    #         else:
-    #             dispatcher.utter_message(
-    #                 "Fyrirgefðu ég fann enga banka á þessu svæði."
-    #             )
+                for i, obj in enumerate(objects, 1):
+                    dispatcher.utter_message("{}: {}".format(i, repr_function(obj)))
+            else:
+                dispatcher.utter_message(
+                    "Fyrirgefðu ég fann enga {} á þessu svæði.".format(object_type)
+                )
 
    
 
