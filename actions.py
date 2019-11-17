@@ -1,8 +1,11 @@
 from rasa_sdk.knowledge_base.storage import InMemoryKnowledgeBase
+from rasa_sdk import Action, Tracker
 from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
 from rasa_sdk.executor import CollectingDispatcher
 from typing import Text, Callable, Dict, List, Any, Optional
 from schema import schema
+import requests
+import json
 
 # This files contains your custom actions which can be used to run
 # custom Python code.
@@ -88,22 +91,26 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
    
 
 # This is a simple example for a custom action which utters "Hello World!"
+#https://stackoverflow.com/questions/58283773/rasa-calling-external-api-throws-none
+class ActionExchangeRate(Action):
 
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message("Hello World!")
-#
-#         return []
+    def name(self) -> Text:
+        return "action_query_exchange_rate"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        r = requests.get('https://api.chucknorris.io/jokes/random')
+        response = r.text
+        json_data= json.loads(response)
+
+        reply = 'Here you go '
+        if (json_data["value"]):
+            reply = reply + json_data["value"]
+        else:
+            reply = reply + "404 not found"
+
+        dispatcher.utter_message(reply)
+
+        return []

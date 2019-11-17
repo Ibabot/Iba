@@ -16,6 +16,10 @@
 * query_knowledge_base
   - action_query_knowledge_base
 
+## query exchange rate
+* query_exchange_rate
+  - action_query_exchange_rate
+
 ## sad path 1
 * greet
   - utter_greet

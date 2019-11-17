@@ -71,6 +71,14 @@
 - Hvaða [bankar](object_type:bank) eru í [Kópavogi](location:Kópavogur)?
 - Hvaða [útibú](object_type:bank) eru í [Hafnarfjörður](location:Hafnarfjörður)?
 
+## intent:query_exchange_rate
+- Hvað er gengið í USD?
+<!-- - Breyta [100](amount) [dollurum](from_currency:USD) í [krónur](to_currency:ISK)?-->
+- Breyta 10 evrum í krónur? 
+- Breyta 100 krónum í Evrur?
+
+## lookup:currency
+
 ## lookup:bank
 - Granda
 - Laugardal
@@ -84,8 +92,9 @@
 - banki 
 
 ## synonym:opening_hours
-- Opnunartímar
-- Opið
+- opnunartímar
+- opið
+- afgreiðslutíma
 
 ## lookup:location
  - Reykjavík

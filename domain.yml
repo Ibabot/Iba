@@ -12,6 +12,7 @@ intents:
 - handle_insult
 - ask_languages_bot
 - query_knowledge_base
+- query_exchange_rate
 - bank_data
 entities:
 - object_type
@@ -69,6 +70,7 @@ templates:
   - text: Ég tala bara íslensku eins og er.
 actions:
 - action_query_knowledge_base
+- action_query_exchange_rate
 - utter_greet
 - utter_cheer_up
 - utter_did_that_help
