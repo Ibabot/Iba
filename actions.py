@@ -89,6 +89,43 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                     "Fyrirgefðu ég fann enga {} á þessu svæði.".format(object_type)
                 )
 
+# https://stackoverflow.com/questions/58283773/rasa-calling-external-api-throws-none
+class ActionExchangeRate(Action):
+
+    def name(self) -> Text:
+        return "action_query_exchange_rate"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        URL = 'http://data.fixer.io/api/latest?access_key=eef193ac69cde1129a25f65ac127354c'
+
+        r = requests.get(URL)
+        response = r.text
+        json_data = json.loads(response)['rates']
+        rate = next(tracker.get_latest_entity_values('rate'), None)
+
+        # if float(rates[from_]) != 0 and to_ in rates and from_ in rates:
+        #         result = float(rates[to_]) * float(amount) / float(rates[from_])
+        #         return round(result,2)
+        #     return 'Can not convert, please try something else!'
+
+        if json_data[rate] is not None:
+            dispatcher.utter_message("Exchange rate is {}".format(rate))
+        else:
+            dispatcher.utter_message("404 fannst ekki")
+
+        return []
+
+        # def run(self, dispatcher, tracker, domain):
+        #     where = next(tracker.get_latest_entity_values('GPE'), None)
+        #     if where is not None:
+        #         dispatcher.utter_message("You asked about {}".format(where))
+        #     else:
+        #         dispatcher.utter_message("I couldn't tell where!")
+            
+        #     return []
 
 # https://stackoverflow.com/questions/58283773/rasa-calling-external-api-throws-none
 class ActionChuckNorris(Action):
