@@ -78,7 +78,7 @@
 ## intent:query_exchange_rate
 - Hvað er gengið í [USD](rate)?
 <!-- - Hvað er gengið í USD? -->
-<!-- - Breyta [10](amount) [EUR](from) í [USD](to) -->
+- Breyta [1000](amount) [ISK](base) í [EUR](rate)
 <!-- - Hvað er gengið í [USD](exchange_rate)? -->
 <!-- - Breyta [100](amount) [dollurum](from_currency:USD) í [krónur](to_currency:ISK)?-->
 <!-- - Breyta 10 evrum í krónur? -->

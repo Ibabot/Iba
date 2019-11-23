@@ -23,10 +23,9 @@ entities:
 - location
 - opening_hours
 - exchange_rate
-- from
-- to
 - amount
 - rate
+- base
 slots:
   address:
     type: unfeaturized

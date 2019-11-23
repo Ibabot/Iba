@@ -13,6 +13,7 @@ import json
 # See this guide on how to implement these action:
 # https://rasa.com/docs/rasa/core/actions/#custom-actions/
 
+# KnowledgeBase from Rasa documentation
 class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
     def __init__(self):
         knowledge_base = InMemoryKnowledgeBase("bank_data.json")
@@ -23,8 +24,7 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
 
         super().__init__(knowledge_base)
 
-    # Code from https://github.com/alessandromentuccia/medici_piemonte/blob/96401b7bfcc21d6ead25c03619fcf0be4d9e7f2f/actions.py
-    # These utteractions 
+    # Overwrite utteractions
     def utter_attribute_value(
             self,
             dispatcher: CollectingDispatcher,
@@ -89,7 +89,6 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                     "Fyrirgefðu ég fann enga {} á þessu svæði.".format(object_type)
                 )
 
-# https://stackoverflow.com/questions/58283773/rasa-calling-external-api-throws-none
 # Action to query exchange rate
 class ActionExchangeRate(Action):
 
@@ -106,11 +105,25 @@ class ActionExchangeRate(Action):
         response = r.text
         json_data = json.loads(response)
         rates = json.loads(response)['rates']
-        # Get entity (rate) from nlu.md
+        # Get entities from nlu.md
         rate = next(tracker.get_latest_entity_values('rate'), None)
+        base = next(tracker.get_latest_entity_values('base'), None)
+        amount = next(tracker.get_latest_entity_values('amount'), None)
 
-        if rates[rate] is not None:
-            dispatcher.utter_message("Gengið í {} er {} miðað við {}".format(rate, rates[rate], json_data['base']))
+        # Check which entities are in user query
+        if rate is not None and base is not None and amount is not None:
+            # Check if rate value and base value exist in api and convert
+            if rates[rate] is not None and json_data['base'] is not None:
+                result = float(rates[rate]) * float(amount)
+                result = round(result,2)
+                dispatcher.utter_message("{} {} eru {} {}".format(amount, base, result, rate))
+            else:
+                dispatcher.utter_message("Fannst ekki í gögnum")
+        elif rate is not None and base is None and amount is None:
+            if rates[rate] is not None:
+                dispatcher.utter_message("Gengið í {} er {} miðað við {}".format(rate, rates[rate], json_data['base']))
+            else:
+                dispatcher.utter_message("Fannst ekki í gögnum")
         else:
             dispatcher.utter_message("404 fannst ekki")
 
