@@ -22,8 +22,9 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
         )
 
         super().__init__(knowledge_base)
-    #Code from https://github.com/alessandromentuccia/medici_piemonte/blob/96401b7bfcc21d6ead25c03619fcf0be4d9e7f2f/actions.py
-    #These utteractions 
+
+    # Code from https://github.com/alessandromentuccia/medici_piemonte/blob/96401b7bfcc21d6ead25c03619fcf0be4d9e7f2f/actions.py
+    # These utteractions 
     def utter_attribute_value(
             self,
             dispatcher: CollectingDispatcher,
@@ -88,14 +89,12 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                     "Fyrirgefðu ég fann enga {} á þessu svæði.".format(object_type)
                 )
 
-   
 
-# This is a simple example for a custom action which utters "Hello World!"
-#https://stackoverflow.com/questions/58283773/rasa-calling-external-api-throws-none
-class ActionExchangeRate(Action):
+# https://stackoverflow.com/questions/58283773/rasa-calling-external-api-throws-none
+class ActionChuckNorris(Action):
 
     def name(self) -> Text:
-        return "action_query_exchange_rate"
+        return "action_query_chuck_norris"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -103,14 +102,12 @@ class ActionExchangeRate(Action):
 
         r = requests.get('https://api.chucknorris.io/jokes/random')
         response = r.text
-        json_data= json.loads(response)
+        json_data = json.loads(response)
 
-        reply = 'Here you go '
         if (json_data["value"]):
-            reply = reply + json_data["value"]
+            reply = json_data["value"]
+            dispatcher.utter_message("Hér er brandarinn: \n {}".format(reply))
         else:
-            reply = reply + "404 not found"
-
-        dispatcher.utter_message(reply)
+            dispatcher.utter_message("404 fannst ekki")
 
         return []

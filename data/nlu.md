@@ -62,6 +62,10 @@
 - er ég að tala við botta?
 - er ég að tala við manneskju?
 
+## intent:query_chuck_norris
+- Segðu mér brandara!
+- Veistu brandara?
+
 ## intent:query_knowledge_base
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Norðurturni](bank)?
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Granda](bank)?
@@ -72,10 +76,13 @@
 - Hvaða [útibú](object_type:bank) eru í [Hafnarfjörður](location:Hafnarfjörður)?
 
 ## intent:query_exchange_rate
-- Hvað er gengið í USD?
+- Hvað er gengið í [USD](rate)?
+<!-- - Hvað er gengið í USD? -->
+<!-- - Breyta [10](amount) [EUR](from) í [USD](to) -->
+<!-- - Hvað er gengið í [USD](exchange_rate)? -->
 <!-- - Breyta [100](amount) [dollurum](from_currency:USD) í [krónur](to_currency:ISK)?-->
-- Breyta 10 evrum í krónur? 
-- Breyta 100 krónum í Evrur?
+<!-- - Breyta 10 evrum í krónur? -->
+<!-- - Breyta 100 krónum í Evrur? -->
 
 ## lookup:currency
 

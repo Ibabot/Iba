@@ -20,6 +20,10 @@
 * query_exchange_rate
   - action_query_exchange_rate
 
+## query chuck norris
+* query_chuck_norris
+  - action_query_chuck_norris
+
 ## sad path 1
 * greet
   - utter_greet
