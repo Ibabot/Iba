@@ -12,4 +12,21 @@ Segðu mér brandara!
 Veistu brandara?
 
 Hvað er gengið í USD?
+Hvað er gengið í EUR?
+Hvað er gengið í dkk?
+Hvað er gengið í gbp?
+
 Breyta 1000 ISK í EUR
+Breyta 1000 USD í dkk?
+breyta 3000 ISK í EUR
+Breyta 10670 usd í dkk
+breyta 32800 ISK í usd
+En 2000
+en 3000?
+En 39487
+en 125423
+
+Breyta 10 evrum í krónur?
+breyta 398 dönskum í krónur?
+89876 danskar í krónur
+112 dollarar í evrur?

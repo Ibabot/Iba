@@ -99,19 +99,27 @@ class ActionExchangeRate(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        URL = 'https://api.exchangeratesapi.io/latest?base=ISK'
+        # Get entities from nlu.md
+        # rate = next(tracker.get_latest_entity_values('rate'), None)
+        # base = next(tracker.get_latest_entity_values('base'), None)
+        rate = tracker.get_slot('rate')
+        base = tracker.get_slot('base')
+        amount = next(tracker.get_latest_entity_values('amount'), None)
 
-        r = requests.get(URL)
+        URL = 'https://api.exchangeratesapi.io/latest'
+
+        if base is not None:
+            r = requests.get(URL + '?base=' + base)
+        else:
+            r = requests.get(URL + '?base=ISK')
+
         response = r.text
         json_data = json.loads(response)
         rates = json.loads(response)['rates']
-        # Get entities from nlu.md
-        rate = next(tracker.get_latest_entity_values('rate'), None)
-        base = next(tracker.get_latest_entity_values('base'), None)
-        amount = next(tracker.get_latest_entity_values('amount'), None)
 
         # Check which entities are in user query
         if rate is not None and base is not None and amount is not None:
+            rate = rate.upper()
             # Check if rate value and base value exist in api and convert
             if rates[rate] is not None and json_data['base'] is not None:
                 result = float(rates[rate]) * float(amount)

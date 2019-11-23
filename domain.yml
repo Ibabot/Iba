@@ -43,6 +43,10 @@ slots:
     type: unfeaturized
   postcode:
     type: unfeaturized
+  rate:
+    type: unfeaturized
+  base:
+    type: unfeaturized
 templates:
   utter_greet:
   - text: Hæ! Hvað get ég gert fyrir þig?

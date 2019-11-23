@@ -77,15 +77,30 @@
 
 ## intent:query_exchange_rate
 - Hvað er gengið í [USD](rate)?
-<!-- - Hvað er gengið í USD? -->
+- hvað er gengið í [EUR](rate)
+- hvað er gengið í [dkk](rate)?
+- Hvað er gengið í [gbp](rate)
 - Breyta [1000](amount) [ISK](base) í [EUR](rate)
-<!-- - Hvað er gengið í [USD](exchange_rate)? -->
-<!-- - Breyta [100](amount) [dollurum](from_currency:USD) í [krónur](to_currency:ISK)?-->
-<!-- - Breyta 10 evrum í krónur? -->
-<!-- - Breyta 100 krónum í Evrur? -->
+- En [2000](amount)?
+- breyta [10670](amount) [USD](base) í [dkk](rate)
+- Breyta [32800](amount) [ISK](base) í [USD](rate)
+- En [2000](amount)
+- en [93471](amount)
+- Breyta [408](amount) [eur](base) í [USD](rate)
+- Breyta [10](amount) [evrum](base:EUR) í [krónur](rate:ISK)?
+- breyta [398](amount) [dönskum](base:DKK) í [krónur](rate:ISK)
+- [89876](amount) [danskar](base:DKK) í [krónur](rate:ISK)
+- [110](amount) [dollarar](base:USD) í [evrur](rate:EUR)
 
-## lookup:currency
+## regex:amount
+- [0-9]*$
 
+## lookup:rate
+  data/lookup/currencies.txt
+
+## lookup:base
+  data/lookup/currencies.txt
+  
 ## lookup:bank
 - Granda
 - Laugardal
