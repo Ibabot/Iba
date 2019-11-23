@@ -90,6 +90,7 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                 )
 
 # https://stackoverflow.com/questions/58283773/rasa-calling-external-api-throws-none
+# Action to query exchange rate
 class ActionExchangeRate(Action):
 
     def name(self) -> Text:
@@ -99,35 +100,22 @@ class ActionExchangeRate(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        URL = 'http://data.fixer.io/api/latest?access_key=eef193ac69cde1129a25f65ac127354c'
+        URL = 'https://api.exchangeratesapi.io/latest?base=ISK'
 
         r = requests.get(URL)
         response = r.text
-        json_data = json.loads(response)['rates']
+        rates = json.loads(response)['rates']
+        # Get entity (rate) from nlu.md
         rate = next(tracker.get_latest_entity_values('rate'), None)
 
-        # if float(rates[from_]) != 0 and to_ in rates and from_ in rates:
-        #         result = float(rates[to_]) * float(amount) / float(rates[from_])
-        #         return round(result,2)
-        #     return 'Can not convert, please try something else!'
-
-        if json_data[rate] is not None:
-            dispatcher.utter_message("Exchange rate is {}".format(rate))
+        if rates[rate] is not None:
+            dispatcher.utter_message("Gengið er {}".format(rates[rate]))
         else:
             dispatcher.utter_message("404 fannst ekki")
 
         return []
 
-        # def run(self, dispatcher, tracker, domain):
-        #     where = next(tracker.get_latest_entity_values('GPE'), None)
-        #     if where is not None:
-        #         dispatcher.utter_message("You asked about {}".format(where))
-        #     else:
-        #         dispatcher.utter_message("I couldn't tell where!")
-            
-        #     return []
-
-# https://stackoverflow.com/questions/58283773/rasa-calling-external-api-throws-none
+# Action to get random Chuck Norris jokes
 class ActionChuckNorris(Action):
 
     def name(self) -> Text:
@@ -139,10 +127,10 @@ class ActionChuckNorris(Action):
 
         r = requests.get('https://api.chucknorris.io/jokes/random')
         response = r.text
-        json_data = json.loads(response)
+        jokes = json.loads(response)
 
-        if (json_data["value"]):
-            reply = json_data["value"]
+        if (jokes["value"]):
+            reply = jokes["value"]
             dispatcher.utter_message("Hér er brandarinn: \n {}".format(reply))
         else:
             dispatcher.utter_message("404 fannst ekki")
