@@ -104,12 +104,13 @@ class ActionExchangeRate(Action):
 
         r = requests.get(URL)
         response = r.text
+        json_data = json.loads(response)
         rates = json.loads(response)['rates']
         # Get entity (rate) from nlu.md
         rate = next(tracker.get_latest_entity_values('rate'), None)
 
         if rates[rate] is not None:
-            dispatcher.utter_message("Gengið er {}".format(rates[rate]))
+            dispatcher.utter_message("Gengið í {} er {} miðað við {}".format(rate, rates[rate], json_data['base']))
         else:
             dispatcher.utter_message("404 fannst ekki")
 
