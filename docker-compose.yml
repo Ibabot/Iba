@@ -7,10 +7,8 @@ services:
     volumes:
       - ./:/app
     command:
-      - run --cors "*"
+      - run
   action_server:
     image: rasa/rasa-sdk:latest
     volumes:
       - ./:/app/actions
-    ports:
-      - 5055:5055
