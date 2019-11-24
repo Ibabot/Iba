@@ -7,12 +7,8 @@ services:
     volumes:
       - ./:/app
     command:
-      - run -m models --enable-api --cors "*" --debug
-  actions:
-    image: rasa/rasa:latest-full
-    ports:
-      - 5055:5055
+      - run
+  action_server:
+    image: rasa/rasa-sdk:latest
     volumes:
-     - ./actions:/app
-    command:
-      - rasa run actions
+      - ./:/app/actions
