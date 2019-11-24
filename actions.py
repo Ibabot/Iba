@@ -42,17 +42,9 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                 attribute_value: the value of the attribute
             """
             if attribute_value:
-                dispatcher.utter_message(
-                    "Það er opið frá {} í {}.".format(
-                        attribute_value, object_name
-                    )
-                )
+                dispatcher.utter_message("Það er opið frá {} í {}.".format(attribute_value, object_name))
             else:
-                dispatcher.utter_message(
-                    "Það fannst enginn opnunartími í {}.".format(
-                        object_name
-                    )
-                )
+                dispatcher.utter_message("Það fannst enginn opnunartími í {}.".format(object_name))
 
     def utter_objects(
             self,
@@ -70,24 +62,16 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
           
             if objects:
                 if (len(objects)==25):
-                    dispatcher.utter_message(
-                    "Það voru margar niðurstöður, hérna koma fyrstu 25"
-                    )
+                    dispatcher.utter_message("Það voru margar niðurstöður, hérna koma fyrstu 25")
                 else:
-                    dispatcher.utter_message(
-                    "Hér eru niðurstöðurnar:"
-                    )
+                    dispatcher.utter_message("Hér eru niðurstöðurnar:")
 
-                repr_function = self.knowledge_base.get_representation_function_of_object(
-                    object_type
-                )
+                repr_function = self.knowledge_base.get_representation_function_of_object(object_type)
 
                 for i, obj in enumerate(objects, 1):
                     dispatcher.utter_message("{}: {}".format(i, repr_function(obj)))
             else:
-                dispatcher.utter_message(
-                    "Fyrirgefðu ég fann enga {} á þessu svæði.".format(object_type)
-                )
+                dispatcher.utter_message("Fyrirgefðu ég fann enga {} á þessu svæði.".format(object_type))
 
 # Action to query exchange rate
 class ActionExchangeRate(Action):
@@ -100,8 +84,6 @@ class ActionExchangeRate(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         # Get entities from nlu.md
-        # rate = next(tracker.get_latest_entity_values('rate'), None)
-        # base = next(tracker.get_latest_entity_values('base'), None)
         rate = tracker.get_slot('rate')
         base = tracker.get_slot('base')
         amount = next(tracker.get_latest_entity_values('amount'), None)
@@ -155,6 +137,6 @@ class ActionChuckNorris(Action):
             reply = jokes["value"]
             dispatcher.utter_message("Hér er brandarinn: \n {}".format(reply))
         else:
-            dispatcher.utter_message("404 fannst ekki")
+            dispatcher.utter_message("Ég er ekki fyndinn.")
 
         return []
