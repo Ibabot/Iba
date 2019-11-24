@@ -7,7 +7,7 @@ services:
     volumes:
       - ./:/app
     command:
-      - run
+      - run --cors "*"
   action_server:
     image: rasa/rasa-sdk:latest
     volumes:
