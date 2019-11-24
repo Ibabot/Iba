@@ -12,3 +12,5 @@ services:
     image: rasa/rasa-sdk:latest
     volumes:
       - ./:/app/actions
+    ports:
+      - 5055:5055
