@@ -1,5 +1,0 @@
-build:
-  docker:
-    web: Dockerfile
-run:
-  web: rasa run -m models --enable-api --cors "*" --debug
