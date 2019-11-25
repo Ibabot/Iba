@@ -3,7 +3,6 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
 from rasa_sdk.executor import CollectingDispatcher
 from typing import Text, Callable, Dict, List, Any, Optional
-from schema import schema
 import requests
 import json
 
