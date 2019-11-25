@@ -8,6 +8,12 @@ services:
       - ./:/app
     command:
       - run
+      - -m 
+      - models 
+      - --enable-api 
+      - --cors 
+      - "*" 
+      - --debug
   action_server:
     image: rasa/rasa-sdk:latest
     volumes:
