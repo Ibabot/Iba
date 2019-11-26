@@ -12,7 +12,9 @@ intents:
 - ask_builder
 - handle_insult
 - ask_languages_bot
+- query_chuck_norris
 - query_knowledge_base
+- query_exchange_rate
 - bank_data
 entities:
 - object_type
@@ -21,6 +23,10 @@ entities:
 - bank
 - location
 - opening_hours
+- exchange_rate
+- amount
+- rate
+- base
 slots:
   address:
     type: unfeaturized
@@ -37,6 +43,10 @@ slots:
   opening_hours:
     type: unfeaturized
   postcode:
+    type: unfeaturized
+  rate:
+    type: unfeaturized
+  base:
     type: unfeaturized
 templates:
   utter_greet:
@@ -72,6 +82,8 @@ templates:
   - text: Ég tala bara íslensku eins og er.
 actions:
 - action_query_knowledge_base
+- action_query_exchange_rate
+- action_query_chuck_norris
 - utter_greet
 - utter_greet_first_time
 - utter_cheer_up
