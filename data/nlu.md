@@ -14,6 +14,9 @@
 - blessuð
 - blessaður
 
+## intent:greet_first_time
+ - first-greet
+
 ## intent:goodbye
 - bæ
 - bæ-bæ

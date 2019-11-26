@@ -1,3 +1,7 @@
+## first conversation
+* greet_first_time
+  - utter_greet_first_time
+
 ## happy path
 * greet
   - utter_greet

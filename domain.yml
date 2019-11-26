@@ -1,4 +1,5 @@
 intents:
+- greet_first_time
 - greet
 - goodbye
 - affirm
@@ -40,6 +41,8 @@ slots:
 templates:
   utter_greet:
   - text: Hæ! Hvað get ég gert fyrir þig?
+  utter_greet_first_time:
+  - text: Hæ, ég heiti Íba og er spjallmenni. Hvað get ég gert fyrir þig?
   utter_cheer_up:
   - text: 'Hér er eitthvað til að hressa þig við:'
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -70,6 +73,7 @@ templates:
 actions:
 - action_query_knowledge_base
 - utter_greet
+- utter_greet_first_time
 - utter_cheer_up
 - utter_did_that_help
 - utter_happy
