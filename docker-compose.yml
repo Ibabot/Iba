@@ -14,4 +14,4 @@ services:
   action_server:
     image: rasa/rasa-sdk:latest
     volumes:
-      - ./:/app/actions
+      - ./actions:/app/actions
