@@ -3,7 +3,6 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
 from rasa_sdk.executor import CollectingDispatcher
 from typing import Text, Callable, Dict, List, Any, Optional
-from schema import schema
 import requests
 import json
 
@@ -16,7 +15,7 @@ import json
 # KnowledgeBase from Rasa documentation
 class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
     def __init__(self):
-        knowledge_base = InMemoryKnowledgeBase("bank_data.json")
+        knowledge_base = InMemoryKnowledgeBase("./actions/bank_data.json")
 
         knowledge_base.set_representation_function_of_object(
             "bank", lambda obj: obj["name"] + " (" + obj["location"] + ")"
