@@ -68,11 +68,15 @@
 ## intent:query_knowledge_base
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Norðurturni](bank)?
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Granda](bank)?
-- Hvað eru [opnunartímar](attribute:opening_hours) í [Laugardal](bank)?
-- Hvað eru [opnunartímar](attribute:opening_hours) í [Hafnarfirði](bank)?
+- hvað eru [opnunartímar](attribute:opening_hours) í [Laugardal](bank)?
+- Hvað eru [opnunartímar](attribute:opening_hours) í [Hafnarfirði](location)?
+- Hvenær er [opið](attribute:opening_hours) á [Egilsstöðum](bank)?
+- hvenær er [opið](attribute:opening_hours) á [Reyðarfirði](bank)?
+- Er [hraðbanki](attribute:ATM) á [Reyðarfirði](bank)?
+- Er [hraðbanki](attribute:ATM) í [Kópavogi](location:Kópavogur)
 - Hvaða [bankar](object_type:bank) eru í [Reykjavík](location)?
 - Hvaða [bankar](object_type:bank) eru í [Kópavogi](location:Kópavogur)?
-- Hvaða [útibú](object_type:bank) eru í [Hafnarfjörður](location:Hafnarfjörður)?
+- hvaða [útibú](object_type:bank) eru í [Hafnarfjörður](location:Hafnarfjörður)?
 
 ## lookup:bank
 - Granda
