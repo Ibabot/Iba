@@ -1,1 +1,1 @@
-web: rasa run --cors "*" -p $PORT
+web: rasa run --cors "*" -p $PORT; rasa run actions -p $PORT;
