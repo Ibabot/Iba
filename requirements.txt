@@ -1,8 +1,15 @@
-rasa==1.5.1
-rasa-sdk~=1.5.1
+# rasa==1.5.1
+rasa-sdk~=1.5.0
 sanic==19.9.0
-sanic-cors==0.9.9.post3
+sanic-cors==0.9.9.post1
 sanic-jwt==1.3.2
-python-socketio==4.4.0
+python-socketio==4.3.1
 requests~=2.22.0
-tensorflow~=1.15.0 
+tensorflow==1.15.0
+# setuptools comes from tensorboard requirement:
+# https://github.com/tensorflow/tensorboard/blob/1.14/tensorboard/pip_package/setup.py#L33
+setuptools >= 41.0.0
+tensorflow-probability==0.7.0
+tensor2tensor==1.14.0
+# the below can be unpinned when python-socketio pins >=3.9.3
+python-engineio==3.9.3
