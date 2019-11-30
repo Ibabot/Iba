@@ -12,10 +12,11 @@ intents:
 - ask_builder
 - handle_insult
 - ask_languages_bot
+- bank_data
 - query_chuck_norris
 - query_knowledge_base
 - query_exchange_rate
-- bank_data
+- query_search_banks
 entities:
 - object_type
 - mention
@@ -27,6 +28,8 @@ entities:
 - amount
 - rate
 - base
+- longitude
+- latitude
 slots:
   address:
     type: unfeaturized
@@ -47,6 +50,10 @@ slots:
   rate:
     type: unfeaturized
   base:
+    type: unfeaturized
+  latitude:
+    type: unfeaturized
+  longitude:
     type: unfeaturized
 templates:
   utter_greet:
@@ -84,6 +91,7 @@ actions:
 - action_query_knowledge_base
 - action_query_exchange_rate
 - action_query_chuck_norris
+- action_query_search_banks
 - utter_greet
 - utter_greet_first_time
 - utter_cheer_up

@@ -99,6 +99,14 @@
 - [89876](amount) [danskar](base:DKK) í [krónur](rate:ISK)
 - [110](amount) [dollarar](base:USD) í [evrur](rate:EUR)
 
+## intent:query_search_banks
+- Hvar er ég?
+- hvar er ég
+- Ég veit ekki hvar ég er
+- ég er týnd
+- Ég er týndur
+- 
+
 ## regex:amount
 - [0-9]*$
 

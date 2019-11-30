@@ -28,6 +28,10 @@
 * query_chuck_norris
   - action_query_chuck_norris
 
+## query search banks
+* query_search_banks
+  - action_query_search_banks
+
 ## sad path 1
 * greet
   - utter_greet

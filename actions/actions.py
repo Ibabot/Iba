@@ -139,3 +139,63 @@ class ActionChuckNorris(Action):
             dispatcher.utter_message("Ég er ekki fyndinn.")
 
         return []
+
+# Action to query exchange rate
+class ActionExchangeRate(Action):
+
+    def name(self) -> Text:
+        return "action_query_exchange_rate"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Get entities from nlu.md
+        rate = tracker.get_slot('rate')
+        base = tracker.get_slot('base')
+        amount = next(tracker.get_latest_entity_values('amount'), None)
+
+        URL = 'https://api.exchangeratesapi.io/latest'
+
+        if base is not None:
+            r = requests.get(URL + '?base=' + base)
+        else:
+            r = requests.get(URL + '?base=ISK')
+
+        response = r.text
+        json_data = json.loads(response)
+        rates = json.loads(response)['rates']
+
+        # Check which entities are in user query
+        if rate is not None and base is not None and amount is not None:
+            rate = rate.upper()
+            # Check if rate value and base value exist in api and convert
+            if rates[rate] is not None and json_data['base'] is not None:
+                result = float(rates[rate]) * float(amount)
+                result = round(result,2)
+                dispatcher.utter_message("{} {} eru {} {}".format(amount, base, result, rate))
+            else:
+                dispatcher.utter_message("Fannst ekki í gögnum")
+        elif rate is not None and base is None and amount is None:
+            if rates[rate] is not None:
+                dispatcher.utter_message("Gengið í {} er {} miðað við {}".format(rate, rates[rate], json_data['base']))
+            else:
+                dispatcher.utter_message("Fannst ekki í gögnum")
+        else:
+            dispatcher.utter_message("404 fannst ekki")
+
+        return []
+
+# Action to get random Chuck Norris jokes
+class ActionSearchBanks(Action):
+
+    def name(self) -> Text:
+        return "action_query_search_banks"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message("Þú ert hér!")
+  
+        return []
