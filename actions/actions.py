@@ -196,6 +196,6 @@ class ActionSearchBanks(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message("Þú ert hér!")
-  
+        dispatcher.utter_message("Sure, please allow me to access your location 🧐")
+        dispatcher.utter_custom_json({"payload":"location"})
         return []
