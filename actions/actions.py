@@ -197,5 +197,6 @@ class ActionSearchBanks(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message("Sure, please allow me to access your location 🧐")
+        ##FutureWarning: Use of `utter_custom_json` is deprecated. Use `utter_message(json_message=<message dict>)`
         dispatcher.utter_custom_json({"payload":"location"})
         return []
