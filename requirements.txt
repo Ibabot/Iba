@@ -1,3 +1,3 @@
 pip==19.3.1
-http://ml-ci.amd.com:21096/job/tensorflow-rocm-release/lastSuccessfulBuild/artifact/pip2_test/whl/tensorflow_rocm-1.15.0-cp27-cp27mu-manylinux1_x86_64.whl	
+https://files.pythonhosted.org/packages/3f/98/5a99af92fb911d7a88a0005ad55005f35b4c1ba8d75fba02df726cd936e6/tensorflow-1.15.0-cp36-cp36m-manylinux2010_x86_64.whl	
 rasa==1.5.0
