@@ -1,18 +1,17 @@
 version: '3.0'
 services:
   rasa:
-    image: rasa/rasa:1.4.3-full
+    image: rasa/rasa:latest-full
     ports:
       - 5005:5005
     volumes:
       - ./:/app
     command:
       - run
-      - --enable-api
       - --cors
       - "*"
   action_server:
-    image: rasa/rasa-sdk:1.4.0
+    image: rasa/rasa-sdk:latest
     ports:
     - "5055:5055"
     volumes:
