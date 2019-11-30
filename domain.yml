@@ -87,6 +87,13 @@ templates:
   - text: Þetta var ekki fallegt 😢
   utter_ask_languagesbot:
   - text: Ég tala bara íslensku eins og er.
+  utter_thanks_for_location:
+  - text: Takk fyrir að leyfa mér að nálgast staðsetningu þína.
+  utter_location_unknown:
+  - text: No problem, I will search restaurants based on your current location, Please
+      allow me to access your location
+    custom:
+      payload: location
 actions:
 - action_query_knowledge_base
 - action_query_exchange_rate
@@ -105,3 +112,5 @@ actions:
 - utter_ask_builder
 - utter_handle_insult
 - utter_ask_languagesbot
+- utter_thanks_for_location
+- utter_location_unknown
