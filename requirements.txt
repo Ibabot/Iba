@@ -1,3 +1,4 @@
+pip==19.3.1
 requests==2.22.0
 rasa==1.5.1
 tensorflow==1.15.0
