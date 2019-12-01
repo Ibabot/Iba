@@ -1,1 +1,1 @@
-web: rasa run --cors "*" -p $PORT
+web: docker-compose up -p $PORT
