@@ -172,8 +172,8 @@ class ActionGeolocation(Action):
         latEntity = next(tracker.get_latest_entity_values("latitude"), None)
         lonEntity = next(tracker.get_latest_entity_values("longitude"), None)
 
-        if longitude is not None and latitude is not None
-            dispatcher.utter_message("The closest ATM(s) close to you are: \n  {}".format(rate)
+        if longitude is not None and latitude is not None:
+            dispatcher.utter_message("Latitude and longitude are: \n  {} \n {}").format(latitude, longitude)
         else:
             dispatcher.utter_message("We could not get your location")
 

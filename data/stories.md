@@ -35,6 +35,10 @@
   - utter_thanks_for_location
   - action_query_search_banks
 
+## query geolocation
+* query_geolocation
+  - action_query_geolocation
+
 ## sad path 1
 * greet
   - utter_greet
