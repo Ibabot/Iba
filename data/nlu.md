@@ -99,6 +99,9 @@
 - [89876](amount) [danskar](base:DKK) í [krónur](rate:ISK)
 - [110](amount) [dollarar](base:USD) í [evrur](rate:EUR)
 
+## intent:query_geolocation
+- Where are the nearest [hraðbanki](attribute:ATM) close to me?
+
 ## intent:query_search_banks
 - Hvar er ég?
 - hvar er ég
