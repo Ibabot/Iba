@@ -1,6 +1,6 @@
 FROM python:3.6-slim
 
-SHELL ["/bin/bash", "-c"]
+# SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update -qq && \
   apt-get install -y --no-install-recommends \
@@ -20,7 +20,7 @@ COPY . .
 
 # RUN pip install -e . --no-cache-dir
 
-VOLUME ["/app/actions"]
+# VOLUME ["/app/actions"]
 
 # EXPOSE 5055
 

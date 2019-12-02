@@ -61,7 +61,7 @@ COPY --from=builder /build /build
 WORKDIR /app
 
 # Create a volume for temporary data
-VOLUME /tmp
+# VOLUME /tmp
 
 # Make sure the default group has the same permissions as the owner
 RUN chgrp -R 0 . && chmod -R g=u .
