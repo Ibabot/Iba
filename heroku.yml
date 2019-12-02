@@ -3,16 +3,5 @@ build:
     web: Dockerfile
     worker: actions/Dockerfile
 run:
-  web:
-    - rasa
-    - run
-    - --cors
-    - "*"
-    - -p
-    - $PORT
+  web: rasa run --cors "*" -p $PORT
   worker: rasa run actions -p $PORT
-    - rasa
-    - run
-    - actions
-    - -p
-    - $PORT
