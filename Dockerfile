@@ -5,7 +5,7 @@ FROM rasa/rasa:1.4.3
 ADD ./models /app/models/
 ADD ./actions /app/actions/
 
-CMD ["rasa run -m models -p $PORT"]
+CMD $(echo “rasa run -p $PORT -m models” | sed 's/=//')
 
 # WORKDIR /build
 
