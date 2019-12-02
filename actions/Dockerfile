@@ -25,7 +25,7 @@ COPY . .
 # EXPOSE 5055
 
 # ENTRYPOINT ["./entrypoint.sh"]
-ENTRYPOINT []
+# ENTRYPOINT []
 
 CMD rasa run actions -p $PORT
 # CMD ["start", "--actions", "actions.actions"]

@@ -72,7 +72,7 @@ USER 1001
 # EXPOSE 5005
 
 # ENTRYPOINT ["rasa"]
-ENTRYPOINT []
+# ENTRYPOINT []
 # CMD ["--help"]
 CMD rasa run -m models -p $PORT
 # CMD ["rasa", "run", "-m", "models", "-p", "$PORT"]
