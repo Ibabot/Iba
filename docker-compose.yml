@@ -1,7 +1,7 @@
 version: '3.0'
 services:
   rasa:
-    image: rasa/rasa:latest-full
+    image: rasa/rasa:1.5.1
     ports:
       - 5005:5005
     volumes:
@@ -11,7 +11,7 @@ services:
       - --cors
       - "*"
   action_server:
-    image: rasa/rasa-sdk:latest
+    image: rasa/rasa-sdk:1.5.1
     ports:
     - "5055:5055"
     volumes:
