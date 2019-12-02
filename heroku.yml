@@ -1,0 +1,7 @@
+build:
+  docker:
+    web: Dockerfile
+    worker: actions/Dockerfile
+run:
+  web: rasa run --cors "*" -p $PORT
+  worker: rasa run actions -p $PORT
