@@ -1,22 +1,27 @@
-FROM python:3.6-slim
+# FROM python:3.6-slim
+FROM rasa/rasa-sdk:1.4.0
+
+ADD . /app/actions
+
+# CMD rasa run actions -p $PORT
 
 # SHELL ["/bin/bash", "-c"]
 
-RUN apt-get update -qq && \
-  apt-get install -y --no-install-recommends \
-  build-essential && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-  mkdir /app
+# RUN apt-get update -qq && \
+#   apt-get install -y --no-install-recommends \
+#   build-essential && \
+#   apt-get clean && \
+#   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+#   mkdir /app
 
-WORKDIR /app
+# WORKDIR /app
 
 # Copy as early as possible so we can cache ...
-COPY requirements.txt .
+# COPY requirements.txt .
 
-RUN pip install -r requirements.txt --no-cache-dir
+# RUN pip install -r requirements.txt --no-cache-dir
 
-COPY . .
+# COPY . .
 
 # RUN pip install -e . --no-cache-dir
 
@@ -27,7 +32,6 @@ COPY . .
 # ENTRYPOINT ["./entrypoint.sh"]
 # ENTRYPOINT []
 
-CMD rasa run actions -p $PORT
 # CMD ["start", "--actions", "actions.actions"]
 # CMD ["rasa", "run", "actions", "-p", "$PORT"]
 # CMD $(echo “rasa run actions -p $PORT” | sed ‘s/=//’)

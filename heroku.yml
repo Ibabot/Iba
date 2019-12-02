@@ -2,6 +2,6 @@ build:
   docker:
     web: Dockerfile
     worker: actions/Dockerfile
-run:
-  web: rasa run
-  worker: rasa run actions
+# run:
+#   web: rasa run
+#   worker: rasa run actions
