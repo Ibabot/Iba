@@ -1,6 +1,17 @@
-FROM rasa/rasa:1.5.1
+FROM ubuntu:18.04
+MAINTAINER Samik Saha
+
+RUN apt-get update && apt-get install -y python3 python3-pip
+RUN python3 -m pip install --upgrade pip
+RUN pip3 install rasa
+
 
 ADD ./models /app/models/
 ADD ./actions /app/actions/
+ADD ./scripts /app/scripts/
+ADD ./config /app/config/
 
-CMD ["run"]
+RUN chmod +x /app/scripts/*
+
+ENTRYPOINT []
+CMD /app/scripts/start_service.sh
