@@ -4,6 +4,7 @@ FROM rasa/rasa:1.4.3
 
 ADD ./models /app/models/
 ADD ./actions /app/actions/
+ADD ./scripts /app/scripts/
 
 RUN chmod +x /app/scripts/*
 
