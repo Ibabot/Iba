@@ -5,7 +5,10 @@ FROM rasa/rasa:1.4.3
 ADD ./models /app/models/
 ADD ./actions /app/actions/
 
-CMD $(echo “rasa run -p $PORT -m models” | sed 's/=//')
+RUN chmod +x /app/scripts/*
+
+ENTRYPOINT []
+CMD /app/scripts/start_service.sh
 
 # WORKDIR /build
 
