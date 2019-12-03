@@ -6,7 +6,7 @@ ADD ./models /app/models/
 ADD ./actions /app/actions/
 ADD ./scripts /app/scripts/
 
-RUN chmod +x /app/scripts/*
+RUN chmod a+rwx /app/scripts/*
 
 ENTRYPOINT []
 CMD /app/scripts/start_service.sh
