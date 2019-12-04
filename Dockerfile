@@ -10,10 +10,11 @@ ADD ./actions /app/actions/
 ADD ./scripts /app/scripts/
 ADD ./config /app/config/
 
-# Don't run as root
-USER 1001
+# # Don't run as root
+# USER 1001
 
-RUN sudo chmod u+x /app/scripts/*
+RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
+USER docker
 ENTRYPOINT []
 CMD /app/scripts/start_service.sh
