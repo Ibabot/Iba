@@ -15,7 +15,7 @@ import json
 # KnowledgeBase from Rasa documentation
 class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
     def __init__(self):
-        knowledge_base = InMemoryKnowledgeBase("./actions/bank_data.json")
+        knowledge_base = InMemoryKnowledgeBase("./app/actions/bank_data.json")
 
         knowledge_base.set_representation_function_of_object(
             "bank", lambda obj: obj["name"] + " (" + obj["location"] + ")"
@@ -72,6 +72,28 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
             else:
                 dispatcher.utter_message("Fyrirgefðu ég fann enga {} á þessu svæði.".format(object_type))
 
+# Action to get random Chuck Norris jokes
+class ActionChuckNorris(Action):
+
+    def name(self) -> Text:
+        return "action_query_chuck_norris"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        r = requests.get('https://api.chucknorris.io/jokes/random')
+        response = r.text
+        jokes = json.loads(response)
+
+        if (jokes["value"]):
+            reply = jokes["value"]
+            dispatcher.utter_message("Hér er brandarinn: \n {}".format(reply))
+        else:
+            dispatcher.utter_message("Ég er ekki fyndinn.")
+
+        return []
+
 # Action to query exchange rate
 class ActionExchangeRate(Action):
 
@@ -115,27 +137,5 @@ class ActionExchangeRate(Action):
                 dispatcher.utter_message("Fannst ekki í gögnum")
         else:
             dispatcher.utter_message("404 fannst ekki")
-
-        return []
-
-# Action to get random Chuck Norris jokes
-class ActionChuckNorris(Action):
-
-    def name(self) -> Text:
-        return "action_query_chuck_norris"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        r = requests.get('https://api.chucknorris.io/jokes/random')
-        response = r.text
-        jokes = json.loads(response)
-
-        if (jokes["value"]):
-            reply = jokes["value"]
-            dispatcher.utter_message("Hér er brandarinn: \n {}".format(reply))
-        else:
-            dispatcher.utter_message("Ég er ekki fyndinn.")
 
         return []
