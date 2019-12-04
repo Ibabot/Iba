@@ -13,7 +13,7 @@ ADD ./config /app/config/
 # Don't run as root
 USER 1001
 
-RUN chmod +x /app/scripts/*
+RUN sudo chmod u+x /app/scripts/*
 
 ENTRYPOINT []
 CMD /app/scripts/start_service.sh
