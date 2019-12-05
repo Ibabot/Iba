@@ -173,7 +173,7 @@ class ActionGeolocation(Action):
         lonEntity = next(tracker.get_latest_entity_values("longitude"), None)
 
         if longitude is not None and latitude is not None:
-            dispatcher.utter_message("Latitude and longitude are: \n  {} \n {}").format(latitude, longitude)
+            dispatcher.utter_message("Latitude and longitude are: \n  {} \n {}".format(latitude, longitude))
         else:
             dispatcher.utter_message("We could not get your location")
 

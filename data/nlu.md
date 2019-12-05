@@ -100,7 +100,9 @@
 - [110](amount) [dollarar](base:USD) í [evrur](rate:EUR)
 
 ## intent:query_geolocation
-- Where are the nearest [hraðbanki](attribute:ATM) close to me?
+- [64.153960](latitude) [-21.950570](longitude)
+- [64.000000](latitude) [-22.000000](longitude)
+- [30.000000](latitude) [-20.000000](longitude)
 
 ## intent:query_search_banks
 - Hvar er ég?
