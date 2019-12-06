@@ -16,6 +16,7 @@ intents:
 - query_knowledge_base
 - query_exchange_rate
 - bank_data
+- help
 entities:
 - object_type
 - mention
@@ -52,7 +53,30 @@ templates:
   utter_greet:
   - text: Hæ! Hvað get ég gert fyrir þig?
   utter_greet_first_time:
-  - text: Hæ, ég heiti Íba og er spjallmenni. Hvað get ég gert fyrir þig?
+  - text:  >
+      Hæ, ég heiti Íba og er spjallmenni. 
+      
+      Þú getur spurt mig um opnunartíma banka, gengi gjaldmiðla og svo er ég líka fyndið. 
+      Hvað get ég gert fyrir þig?  
+
+      Ef þú vilt frekari hugmyndir um hvað ég get gert sláðu inn hjálp. 
+  utter_help:
+  - text: Þú getur spurt mig um gengi gjaldmiðla
+    buttons:
+    - title: Hvað er gengið í USD?
+      payload: Hvað er gengið í USD?
+    - title: Breyta 1000 ISK í EUR
+      payload: Breyta 1000 ISK í EUR
+  - text: Þú getur beðið mig um upplýsingar um banka 
+    buttons:
+      - title: Hvaða bankar eru í Reykjavík
+        payload: Hvaða bankar eru í Reykjavík
+      - title: Hvað eru opnunartímar í Granda?
+        payload: Hvað eru opnunartímar í Granda?
+  - text: Ég er líka fyndið, stundum. Viltu heyra brandara?
+    buttons:
+      - title: Segðu brandara
+        payload: Segðu brandara
   utter_cheer_up:
   - text: 'Hér er eitthvað til að hressa þig við:'
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -65,8 +89,8 @@ templates:
   utter_iamabot:
   - text: Ég er botti, hannaður með Rasa.
   utter_ask_rephrase:
-  - text: Sorry, I'm not sure I understand. Could you rephrase it?
-  - text: Could you please rephrase your message? I didn't quite get that.
+  - text: Fyrirgefðu, ég skil þig ekki alveg. Getur þú orðað þetta öðruvísi?
+  - text: Gætir þú vinsamlegast endurorðað þetta? Ég náði þessu ekki alveg.
   utter_noworries:
   - text: Það var lítið!
   - text: Ekkert mál!
@@ -77,7 +101,7 @@ templates:
   utter_ask_builder:
   - text: Nemendur úr HR!
   utter_handle_insult:
-  - text: Þetta var ekki fallegt 😢
+  - text: Þetta var ekki \n fallegt 😢
   utter_ask_languagesbot:
   - text: Ég tala bara íslensku eins og er.
 actions:
@@ -86,6 +110,7 @@ actions:
 - action_query_chuck_norris
 - utter_greet
 - utter_greet_first_time
+- utter_help
 - utter_cheer_up
 - utter_did_that_help
 - utter_happy

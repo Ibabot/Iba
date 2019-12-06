@@ -138,3 +138,16 @@
 - kærar þakkir
 - flott, takk
 - flott, takk fyrir
+
+## intent:help
+- Hjálp
+- getur þú hjálpað mér?
+- Hvað kanntu að gera?
+- hjálp
+- help
+- Hvað getur þú gert?
+- hvernig virkar þetta
+- Hvernig virkar þú?
+- hvernig nota ég þetta
+- Ég skil þig ekki
+- ég skil ekki hvernig þetta virkar

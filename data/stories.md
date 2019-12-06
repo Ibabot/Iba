@@ -2,6 +2,10 @@
 * greet_first_time
   - utter_greet_first_time
 
+## ask about help
+* help
+  - utter_help
+
 ## happy path
 * greet
   - utter_greet
