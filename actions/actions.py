@@ -1,5 +1,6 @@
 from rasa_sdk.knowledge_base.storage import InMemoryKnowledgeBase
 from rasa_sdk import Action, Tracker
+from rasa_sdk.events import FollowupAction, ConversationPaused, ConversationResumed
 from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
 from rasa_sdk.executor import CollectingDispatcher
 from typing import Text, Callable, Dict, List, Any, Optional
@@ -142,7 +143,6 @@ class ActionExchangeRate(Action):
         
 # Action to get random Chuck Norris jokes
 class ActionSearchBanks(Action):
-
     def name(self) -> Text:
         return "action_query_search_banks"
 
@@ -150,10 +150,16 @@ class ActionSearchBanks(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message("Sure, please allow me to access your location 🧐")
+        """dispatcher.utter_custom_json(jsonString) """
+        """dispatcher.utter_message("Please allow me to access your location 🧐") """
         ##FutureWarning: Use of `utter_custom_json` is deprecated. Use `utter_message(json_message=<message dict>)`
-        dispatcher.utter_custom_json({"payload":"location"})
-        return []
+                
+        if tracker.latest_action_name == "action_query_geolocation":
+            return []
+        else:
+            dispatcher.utter_template("utter_geolocation_template", tracker)
+            return [FollowupAction(name="action_query_geolocation")]
+            
 
 # Action to get random Chuck Norris jokes
 class ActionGeolocation(Action):
@@ -165,16 +171,6 @@ class ActionGeolocation(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # Get entities from nlu.md
-        latitude = tracker.get_slot('latitude')
-        longitude = tracker.get_slot('longitude')
-
-        latEntity = next(tracker.get_latest_entity_values("latitude"), None)
-        lonEntity = next(tracker.get_latest_entity_values("longitude"), None)
-
-        if longitude is not None and latitude is not None:
-            dispatcher.utter_message("Latitude and longitude are: \n  {} \n {}".format(latitude, longitude))
-        else:
-            dispatcher.utter_message("We could not get your location")
+        dispatcher.utter_message("Allow me to access your location 🧐")
 
         return []

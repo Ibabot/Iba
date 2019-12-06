@@ -95,6 +95,8 @@ templates:
       allow me to access your location
     custom:
       payload: location
+  utter_geolocation_template:
+  - text: "Ok!"
 actions:
 - action_query_knowledge_base
 - action_query_exchange_rate
