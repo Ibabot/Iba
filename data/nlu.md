@@ -13,6 +13,7 @@
 - sælir
 - blessuð
 - blessaður
+- Hi
 
 ## intent:greet_first_time
  - first-greet

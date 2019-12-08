@@ -54,12 +54,15 @@ templates:
   - text: Hæ! Hvað get ég gert fyrir þig?
   utter_greet_first_time:
   - text:  >
-      Hæ, ég heiti Íba og er spjallmenni. 
-      
-      Þú getur spurt mig um opnunartíma banka, gengi gjaldmiðla og svo er ég líka fyndið. 
+      Hæ, ég heiti Íba og er spjallmenni.
+
+
+      Þú getur spurt mig um opnunartíma banka, gengi gjaldmiðla og svo er ég líka fyndið.
+
       Hvað get ég gert fyrir þig?  
 
-      Ef þú vilt frekari hugmyndir um hvað ég get gert sláðu inn hjálp. 
+
+      Ef þú vilt frekari hugmyndir um hvað ég get gert sláðu inn "hjálp" 
   utter_help:
   - text: Þú getur spurt mig um gengi gjaldmiðla
     buttons:
