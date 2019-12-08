@@ -6,8 +6,12 @@
             "address": "Fiskislóð 10",
             "location": "Reykjavík",
             "postcode": "101",
+            "bank-number": "513",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.153960",
+            "longitude": "-21.950570",
+            "google_location": ""
         },
         {
             "id": 1,
@@ -15,8 +19,12 @@
             "address": "Suðurlandsbraut 14",
             "location": "Reykjavík",
             "postcode": "108",
+            "bank-number": "515",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.138980",
+            "longitude": "-21.880610",
+            "google_location": ""
         },
         {
             "id": 2,
@@ -24,8 +32,12 @@
             "address": "Höfðabakka 9",
             "location": "Reykjavík",
             "postcode": "110",
+            "bank-number": "528",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.125260",
+            "longitude": "-21.810850",
+            "google_location": "https://goo.gl/maps/vLWdg3vs5qTCNeB16"
         },
         {
             "id": 3,
@@ -33,8 +45,12 @@
             "address": "Hagasmára 3",
             "location": "Kópavogur",
             "postcode": "201",
+            "bank-number": "537",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.101870",
+            "longitude": "-21.885240",
+            "google_location": ""
         },
         {
             "id": 4,
@@ -42,9 +58,129 @@
             "address": "Strandgötu 8-10",
             "location": "Hafnarfjörður",
             "postcode": "220",
+            "bank-number": "545",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.069443",
+            "longitude": "-21.957411",
+            "google_location": ""
+        },
+        {
+            "id": 5,
+            "name": "Reykjanesbæ",
+            "address": "Hafnargötu 91",
+            "location": "Reykjanesbær",
+            "postcode": "230",
+            "bank-number": "542",
+            "atm": true,
+            "opening_hours": "09:00-16:00",
+            "latitude": "63.995320",
+            "longitude": "-22.548140",
+            "google_location": ""
+        },
+        {
+            "id": 6,
+            "name": "Akranesi",
+            "address": "Dalbraut 1",
+            "location": "Akranes",
+            "postcode": "300",
+            "bank-number": "552",
+            "atm": true,
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.321550",
+            "longitude": "-22.069750",
+            "google_location": ""
+        },
+        {
+            "id": 7,
+            "name": "Ísafirði",
+            "address": "Hafnarstræti 1",
+            "location": "Ísafjörður",
+            "postcode": "400",
+            "bank-number": "556",
+            "atm": true,
+            "opening_hours": "09:00-16:00",
+            "latitude": "66.072970",
+            "longitude": "-23.120120",
+            "google_location": ""
+        },
+        {
+            "id": 8,
+            "name": "Akureyri",
+            "address": "Skipagötu 14",
+            "location": "Akureyri",
+            "postcode": "600",
+            "bank-number": "565",
+            "atm": true,
+            "opening_hours": "09:00-16:00",
+            "latitude": "65.681660",
+            "longitude": "-18.089410",
+            "google_location": ""
+        },
+        {
+            "id": 9,
+            "name": "Selfossi",
+            "address": "Austurvegi 9",
+            "location": "Selfoss",
+            "postcode": "800",
+            "bank-number": "586",
+            "atm": true,
+            "opening_hours": "09:00-16:00",
+            "latitude": "63.937450",
+            "longitude": "-20.999590",
+            "google_location": ""
+        },
+        {
+            "id": 10,
+            "name": "Vestmanneyjum",
+            "address": "Kirkjuvegi 23",
+            "location": "Vestmanneyjar",
+            "postcode": "900",
+            "bank-number": "582",
+            "atm": true,
+            "opening_hours": "09:00-16:00",
+            "latitude": "63.440440",
+            "longitude": "-20.266120",
+            "google_location": ""
+        },
+        {
+            "id": 11,
+            "name": "Húsavík",
+            "address": "Stóragarði 1",
+            "location": "Húsavík",
+            "postcode": "640",
+            "bank-number": "567",
+            "atm": true,
+            "opening_hours": "09:00-16:00",
+            "latitude": "66.046250",
+            "longitude": "-17.342180",
+            "google_location": ""
+        },
+        {
+            "id": 12,
+            "name": "Egilsstöðum",
+            "address": "Miðvangi 1",
+            "location": "Egilsstaðir",
+            "postcode": "700",
+            "bank-number": "569",
+            "atm": true,
+            "opening_hours": "09:00-16:00",
+            "latitude": "65.261429",
+            "longitude": "-14.406130",
+            "google_location": ""
+        },
+        {
+            "id": 13,
+            "name": "Reyðarfirði",
+            "address": "Búðareyri 7",
+            "location": "Reyðarfjörður",
+            "postcode": "730",
+            "bank-number": "569",
+            "atm": true,
+            "opening_hours": "12:30-16:00",
+            "latitude": "65.032820",
+            "longitude": "-14.221010",
+            "google_location": ""
         }
     ]
 }
-
