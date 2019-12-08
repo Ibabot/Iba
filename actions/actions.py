@@ -105,8 +105,8 @@ class ActionExchangeRate(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         # Get entities from nlu.md
-        rate = tracker.get_slot('rate')
-        base = tracker.get_slot('base')
+        rate = tracker.get_slot('rate').upper()
+        base = tracker.get_slot('base').upper()
         amount = next(tracker.get_latest_entity_values('amount'), None)
 
         URL = 'https://api.exchangeratesapi.io/latest'
