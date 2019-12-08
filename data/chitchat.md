@@ -57,6 +57,7 @@
 - hvar varstu búinn til?
 - Hver á þig?
 - Hver bjó þig til?
+- Hverjir bjuggu þig til
 - hver bjó þig til?
 - Hver byggði þig?
 - hver er faðirinn þinn?
