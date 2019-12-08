@@ -95,7 +95,7 @@
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Norðurturni](bank)?
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Granda](bank)?
 - hvað eru [opnunartímar](attribute:opening_hours) í [Laugardal](bank)?
-- Hvað eru [opnunartímar](attribute:opening_hours) í [Hafnarfirði](location)?
+- Hvað eru [opnunartímar](attribute:opening_hours) í [Hafnarfirði](bank)?
 - Hvenær er [opið](attribute:opening_hours) á [Egilsstöðum](bank)?
 - hvenær er [opið](attribute:opening_hours) á [Reyðarfirði](bank)?
 - Er [hraðbanki](attribute:ATM) á [Reyðarfirði](bank)?
@@ -104,9 +104,9 @@
 - Hvaða [bankar](object_type:bank) eru í [Kópavogi](location:Kópavogur)?
 - hvaða [útibú](object_type:bank) eru í [Hafnarfjörður](location:Hafnarfjörður)?
 - hvenær er [opið](attribute:opening_hours)?
-- hvenær er [opið](attribute:opening_hours) á [Reyðarfirði](bank)?
+- hvenær er [opið](attribute:opening_hours) á [Reyðarfirði](location:Reyðarfjörður)?
 - En á [Ísafirði](bank:Ísafjörður)?
-- en á [Reyðarfirði](bank:Reyðarfjörður)
+- en á [Reyðarfirði](location:Reyðarfjörður)
 
 ## intent:query_exchange_rate
 - Hvað er gengið í [USD](rate)?

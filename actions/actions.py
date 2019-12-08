@@ -15,10 +15,10 @@ import json
 # KnowledgeBase from Rasa documentation
 class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
     def __init__(self):
-        #knowledge_base = InMemoryKnowledgeBase("./app/actions/bank_data.json")
+       # knowledge_base = InMemoryKnowledgeBase("./app/actions/bank_data.json")
         knowledge_base = InMemoryKnowledgeBase("./actions/bank_data.json")
         knowledge_base.set_representation_function_of_object(
-            "bank", lambda obj: obj["name"] + ", " + obj["address"] +  " (" + obj["google_location"] + ")"
+            "bank", lambda obj: obj["name"] + ", " + obj["address"] +  " (" + obj["location"] + ")"
         )
 
         super().__init__(knowledge_base)
