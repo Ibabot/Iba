@@ -8,7 +8,10 @@
             "postcode": "101",
             "bank-number": "513",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.153960",
+            "longitude": "-21.950570",
+            "google_location": "[Fiskislóð 10](https://goo.gl/maps/NnTFgPjz6pthV3AZ7)"
         },
         {
             "id": 1,
@@ -18,7 +21,10 @@
             "postcode": "108",
             "bank-number": "515",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.138980",
+            "longitude": "-21.880610",
+            "google_location": "[Suðurlandsbraut 14](https://goo.gl/maps/ys6j1ab4aNc9wuoo8)"
         },
         {
             "id": 2,
@@ -28,7 +34,10 @@
             "postcode": "110",
             "bank-number": "528",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.125260",
+            "longitude": "-21.810850",
+            "google_location": "[Höfðabakka 9](https://goo.gl/maps/3YcTpLVnUpQzpm359)"
         },
         {
             "id": 3,
@@ -38,7 +47,10 @@
             "postcode": "201",
             "bank-number": "537",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.101870",
+            "longitude": "-21.885240",
+            "google_location": "[Hagasmára 3](https://goo.gl/maps/snUfhkhENNA54htB6)"
         },
         {
             "id": 4,
@@ -48,7 +60,10 @@
             "postcode": "220",
             "bank-number": "545",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.069443",
+            "longitude": "-21.957411",
+            "google_location": "[Strandgötu 8-10](https://goo.gl/maps/7Vx8FCLUuxtoJeB17)"
         },
         {
             "id": 5,
@@ -58,7 +73,10 @@
             "postcode": "230",
             "bank-number": "542",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "63.995320",
+            "longitude": "-22.548140",
+            "google_location": "[Hafnargötu 92](https://goo.gl/maps/yfS1CBzdbFuXCBn39)"
         },
         {
             "id": 6,
@@ -68,7 +86,10 @@
             "postcode": "300",
             "bank-number": "552",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "64.321550",
+            "longitude": "-22.069750",
+            "google_location": "[Dalbraut 1](https://goo.gl/maps/U6zCtiiznqqgtbi68)"
         },
         {
             "id": 7,
@@ -78,7 +99,10 @@
             "postcode": "400",
             "bank-number": "556",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "66.072970",
+            "longitude": "-23.120120",
+            "google_location": "[Hafnarstræti 1](https://goo.gl/maps/JoE9fjPrhhmBZjwq8)"
         },
         {
             "id": 8,
@@ -88,7 +112,10 @@
             "postcode": "600",
             "bank-number": "565",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "65.681660",
+            "longitude": "-18.089410",
+            "google_location": "[Skipagötu 14](https://goo.gl/maps/RMaT7hZACY1c7RHt6)"
         },
         {
             "id": 9,
@@ -98,7 +125,10 @@
             "postcode": "800",
             "bank-number": "586",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "63.937450",
+            "longitude": "-20.999590",
+            "google_location": "[Austurvegi 9](https://goo.gl/maps/dscaFtz9Ppx8Dy7K6)"
         },
         {
             "id": 10,
@@ -108,7 +138,10 @@
             "postcode": "900",
             "bank-number": "582",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "63.440440",
+            "longitude": "-20.266120",
+            "google_location": "[Kirkjuvegi 23](https://goo.gl/maps/nNzkyXkjGbeehbG56)"
         },
         {
             "id": 11,
@@ -118,7 +151,10 @@
             "postcode": "640",
             "bank-number": "567",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "66.046250",
+            "longitude": "-17.342180",
+            "google_location": "[Stóragarði 1](https://goo.gl/maps/dZG6k8t48wVML5sFA)"
         },
         {
             "id": 12,
@@ -128,7 +164,10 @@
             "postcode": "700",
             "bank-number": "569",
             "atm": true,
-            "opening_hours": "09:00-16:00"
+            "opening_hours": "09:00-16:00",
+            "latitude": "65.261429",
+            "longitude": "-14.406130",
+            "google_location": "[Miðvangi 1](https://goo.gl/maps/tLd9WZAhU2DFcPQa6)"
         },
         {
             "id": 13,
@@ -138,8 +177,10 @@
             "postcode": "730",
             "bank-number": "569",
             "atm": true,
-            "opening_hours": "12:30-16:00"
+            "opening_hours": "12:30-16:00",
+            "latitude": "65.032820",
+            "longitude": "-14.221010",
+            "google_location": "[Búðareyri 7](https://goo.gl/maps/XXUqYQazbhifJSLEA)"
         }
     ]
 }
-

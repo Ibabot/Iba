@@ -105,6 +105,7 @@
 - Segðu mér nafn skaparans þíns.
 - þú ert að vinna hjá hvaða fyrirtæki?
 - Veistu hver bjó þig til?
+- hver bjó þig til?
 
 ## intent:handle_insult
 - allt í lagi þegiðu
@@ -180,3 +181,9 @@
 - Talar þú önnur tungumál?
 - talar þú pólsku?
 - Þekkir þú fleiri en eitt tungumál?
+- Talar þú Íslensku?
+- Hvað talar þú?
+- Talar þú Pólsku?
+- Talar þú ensku?
+- Do you speak English?
+- do you speak english?

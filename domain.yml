@@ -76,19 +76,15 @@ templates:
         payload: Hvaða bankar eru í Reykjavík
       - title: Hvað eru opnunartímar í Granda?
         payload: Hvað eru opnunartímar í Granda?
-  - text: Ég er líka fyndið, stundum. Viltu heyra brandara?
-    buttons:
-      - title: Segðu brandara
-        payload: Segðu brandara
   utter_cheer_up:
   - text: 'Hér er eitthvað til að hressa þig við:'
     image: https://i.imgur.com/nGF1K8f.jpg
   utter_did_that_help:
   - text: Virkaði þetta?
   utter_happy:
-  - text: Flott, áfram svona!
+  - text: Gott að heyra :)
   utter_goodbye:
-  - text: Bæ!
+  - text: Takk fyrir samtalið, sjáumst seinna!
   utter_iamabot:
   - text: Ég er botti, hannaður með Rasa.
   utter_ask_rephrase:
@@ -104,7 +100,7 @@ templates:
   utter_ask_builder:
   - text: Nemendur úr HR!
   utter_handle_insult:
-  - text: Þetta var ekki \n fallegt 😢
+  - text: Þetta var ekki fallegt 😢
   utter_ask_languagesbot:
   - text: Ég tala bara íslensku eins og er.
 actions:

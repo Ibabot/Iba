@@ -18,7 +18,7 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
         knowledge_base = InMemoryKnowledgeBase("./actions/bank_data.json")
 
         knowledge_base.set_representation_function_of_object(
-            "bank", lambda obj: obj["name"] + " (" + obj["location"] + ")"
+            "bank", lambda obj: obj["name"] + ", " + obj["google_location"] + " (" + obj["location"] + ")"
         )
 
         super().__init__(knowledge_base)
@@ -83,11 +83,16 @@ class ActionExchangeRate(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         # Get entities from nlu.md
-        rate = tracker.get_slot('rate').upper()
-        base = tracker.get_slot('base').upper()
+        rate = tracker.get_slot('rate')
+        base = tracker.get_slot('base')
         amount = next(tracker.get_latest_entity_values('amount'), None)
 
         URL = 'https://api.exchangeratesapi.io/latest'
+
+        if base is not None:
+            base = base.upper()
+        if rate is not None:
+            rate = rate.upper()
 
         if base is not None:
             r = requests.get(URL + '?base=' + base)
@@ -100,7 +105,6 @@ class ActionExchangeRate(Action):
 
         # Check which entities are in user query
         if rate is not None and base is not None and amount is not None:
-            rate = rate.upper()
             # Check if rate value and base value exist in api and convert
             if rates[rate] is not None and json_data['base'] is not None:
                 result = float(rates[rate]) * float(amount)
