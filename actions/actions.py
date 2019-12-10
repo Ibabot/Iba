@@ -18,11 +18,11 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
         knowledge_base = InMemoryKnowledgeBase("./actions/bank_data.json")
 
         knowledge_base.set_representation_function_of_object(
-            "bank", lambda obj: obj["name"] + " (" + obj["location"] + ")"
+            "bank", lambda obj: obj["name"] + ", " + obj["google_location"] + " (" + obj["location"] + ")"
         )
 
         super().__init__(knowledge_base)
-
+    
     # Overwrite utteractions
     def utter_attribute_value(
             self,
@@ -40,16 +40,24 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                 attribute_name: the name of the attribute
                 attribute_value: the value of the attribute
             """
-            if attribute_value:
-                dispatcher.utter_message("Það er opið frá {} í {}.".format(attribute_value, object_name))
+            if attribute_value is not None and object_name is not None:
+                if attribute_name == 'opening_hours':
+                    dispatcher.utter_message("Það er opið frá {} í {}.".format(attribute_value, object_name))
+                    return
+                if attribute_name == 'atm' and attribute_value is True:
+                    dispatcher.utter_message("Það er hraðbanki í {}".format(object_name))
+                else:
+                    dispatcher.utter_message("Það er enginn hraðbanki í {}.".format(object_name))
             else:
-                dispatcher.utter_message("Það fannst enginn opnunartími í {}.".format(object_name))
+                dispatcher.utter_message("Ég fann engar niðurstöður")
 
+    # Overwrite utter_objects
     def utter_objects(
             self,
             dispatcher: CollectingDispatcher,
             object_type: Text,
             objects: List[Dict[Text, Any]],
+#            attribute_name: Text
         ) -> None:
             """
             Utters a response to the user that lists all found objects.
@@ -58,17 +66,20 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                 object_type: the object type
                 objects: the list of objects
             """
-          
+
+           # entity = next(tracker.get_latest_entity_values("location"), None)
+           # utter_message("location {}".format(entity))
             if objects:
-                if (len(objects)==25):
-                    dispatcher.utter_message("Það voru margar niðurstöður, hérna koma fyrstu 25")
-                else:
-                    dispatcher.utter_message("Hér eru niðurstöðurnar:")
-
-                repr_function = self.knowledge_base.get_representation_function_of_object(object_type)
-
-                for i, obj in enumerate(objects, 1):
-                    dispatcher.utter_message("{}: {}".format(i, repr_function(obj)))
+                if object_type == 'bank':
+                    repr_function = self.knowledge_base.get_representation_function_of_object(object_type)
+                    if (len(objects)>1):
+                        dispatcher.utter_message("Það eru nokkrir bankar")
+                        for i, obj in enumerate(objects, 1):
+                            dispatcher.utter_message("{}: {}".format(i, repr_function(obj)))
+                    else:
+                        dispatcher.utter_message("Það er einn")
+                        for i, obj in enumerate(objects, 1):
+                            dispatcher.utter_message("{}".format(repr_function(obj)))
             else:
                 dispatcher.utter_message("Fyrirgefðu ég fann enga {} á þessu svæði.".format(object_type))
 
@@ -83,11 +94,16 @@ class ActionExchangeRate(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         # Get entities from nlu.md
-        rate = tracker.get_slot('rate').upper()
-        base = tracker.get_slot('base').upper()
+        rate = tracker.get_slot('rate')
+        base = tracker.get_slot('base')
         amount = next(tracker.get_latest_entity_values('amount'), None)
 
         URL = 'https://api.exchangeratesapi.io/latest'
+
+        if base is not None:
+            base = base.upper()
+        if rate is not None:
+            rate = rate.upper()
 
         if base is not None:
             r = requests.get(URL + '?base=' + base)
@@ -100,7 +116,6 @@ class ActionExchangeRate(Action):
 
         # Check which entities are in user query
         if rate is not None and base is not None and amount is not None:
-            rate = rate.upper()
             # Check if rate value and base value exist in api and convert
             if rates[rate] is not None and json_data['base'] is not None:
                 result = float(rates[rate]) * float(amount)
