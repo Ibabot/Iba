@@ -131,20 +131,48 @@
 - hvað er gengið í [EUR](rate)
 - hvað er gengið í [dkk](rate)?
 - Hvað er gengið í [gbp](rate)
-- Gengi í [USD](rate)
+- Gengið í [USD](rate)
+- Gengið í [krónum](rate:ISK)
+- Gengið í [evrum](rate:EUR)
 - Hvernig er gengið í [jpy](rate)?
 - Breyta [1000](amount) [ISK](base) í [EUR](rate)
-- En [2000](amount)?
 - breyta [10670](amount) [USD](base) í [dkk](rate)
 - Breyta [32800](amount) [ISK](base) í [USD](rate)
-- En [10000](amount)
-- en [93471](amount)
-- En hvað með [24432](amount)
 - Breyta [408](amount) [eur](base) í [USD](rate)
 - Breyta [10](amount) [evrum](base:EUR) í [krónur](rate:ISK)?
 - breyta [398](amount) [dönskum](base:DKK) í [krónur](rate:ISK)
 - [89876](amount) [danskar](base:DKK) í [krónur](rate:ISK)
 - [110](amount) [dollarar](base:USD) í [evrur](rate:EUR)
+- [50000](amount) [isk](base:ISK) í [try](rate)
+- En [10000](amount)
+- en [93471](amount)
+- En [2000](amount)?
+- En hvað með [24432](amount)
+- [5000](amount)?
+
+## synonym:DKK
+- danskar krónur
+- danska krónu
+- danskar
+
+## synonym:USD
+- Dollara
+- dollara
+- bandaríska
+- $
+- dollurum
+
+## synonym:ISK
+- krónur
+- króna
+- krónum
+- íslenskar krónur
+- islenskar
+
+## synonym:EUR
+- evrur
+- Evra
+- evrum
 
 ## regex:amount
 - [0-9]*$
