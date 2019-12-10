@@ -4,9 +4,9 @@ RUN apt-get update && apt-get install -y python3 python3-pip
 RUN python3 -m pip install --upgrade pip
 RUN pip3 install rasa==1.5.1
 
-ADD * /app/actions/
+ADD * /actions/
 
-RUN chmod +x /app/actions/*
+RUN chmod +x /actions/*
 
 ENTRYPOINT []
-CMD ./app/actions/start_actions.sh
+CMD ./actions/start_actions.sh

@@ -125,8 +125,8 @@
 - Er [Hraðbanki](attribute:atm) á [Akranesi](bank)?
 - er [hraðbanki](attribute:atm)?
 - Er [atm](attribute:atm)
-- Er [hraðbanki](attribute:ATM) á [Reyðarfirði](bank)?
-- Er [hraðbanki](attribute:ATM) í [Kópavogi](bank)
+- Er [hraðbanki](attribute:atm) á [Reyðarfirði](bank)?
+- Er [hraðbanki](attribute:atm) í [Kópavogi](bank)
 - En á [Ísafirði](bank)?
 - en á [Reyðarfirði](location:Reyðarfjörður)
 
@@ -144,9 +144,10 @@
 - Breyta [32800](amount) [ISK](base) í [USD](rate)
 - Breyta [408](amount) [eur](base) í [USD](rate)
 - Breyta [10](amount) [evrum](base:EUR) í [krónur](rate:ISK)?
-- breyta [398](amount) [dönskum](base:DKK) í [krónur](rate:ISK)
+- breyta [398](amount) [dönskum](base:DKK) í [Íslenskar](rate:ISK)
 - [89876](amount) [danskar](base:DKK) í [krónur](rate:ISK)
-- [110](amount) [dollarar](base:USD) í [evrur](rate:EUR)
+- [110](amount) [íslenskar](base:IS) í [Evrur](rate:EUR)
+- [11390](amount) [dollarar](base:USD) í [evrur](rate:EUR)
 - [50000](amount) [isk](base:ISK) í [try](rate)
 - En [10000](amount)
 - en [93471](amount)
@@ -202,6 +203,11 @@
 - opinn
 - opið
 - afgreiðslutíma
+
+## synonym:atm
+- hraðbanki
+- Hraðbankar
+- ATM
 
 ## lookup:location
   data/lookup/locations.txt

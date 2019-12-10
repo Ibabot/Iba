@@ -131,10 +131,13 @@ class ActionExchangeRate(Action):
             r = requests.get(URL + '?base=' + base)
         else:
             r = requests.get(URL + '?base=ISK')
-
-        response = r.text
-        json_data = json.loads(response)
-        rates = json.loads(response)['rates']
+            
+        try:
+            response = r.text
+            json_data = json.loads(response)
+            rates = json.loads(response)['rates']
+        except ValueError:
+            dispatcher.utter_message("Fann ekki gjaldmiðil í gögnum")
 
         # Check which entities are in user query
         if rate is not None and base is not None and amount is not None:
