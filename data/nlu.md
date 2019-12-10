@@ -125,6 +125,10 @@
 - Er [Hraðbanki](attribute:atm) á [Akranesi](bank)?
 - er [hraðbanki](attribute:atm)?
 - Er [atm](attribute:atm)
+- Er [hraðbanki](attribute:ATM) á [Reyðarfirði](bank)?
+- Er [hraðbanki](attribute:ATM) í [Kópavogi](bank)
+- En á [Ísafirði](bank)?
+- en á [Reyðarfirði](location:Reyðarfjörður)
 
 ## intent:query_exchange_rate
 - Hvað er gengið í [USD](rate)?
