@@ -22,7 +22,7 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
         )
 
         super().__init__(knowledge_base)
-
+    
     # Overwrite utteractions
     def utter_attribute_value(
             self,
@@ -40,16 +40,24 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                 attribute_name: the name of the attribute
                 attribute_value: the value of the attribute
             """
-            if attribute_value:
-                dispatcher.utter_message("Það er opið frá {} í {}.".format(attribute_value, object_name))
+            if attribute_value is not None and object_name is not None:
+                if attribute_name == 'opening_hours':
+                    dispatcher.utter_message("Það er opið frá {} í {}.".format(attribute_value, object_name))
+                    return
+                if attribute_name == 'atm' and attribute_value is True:
+                    dispatcher.utter_message("Það er hraðbanki í {}".format(object_name))
+                else:
+                    dispatcher.utter_message("Það er enginn hraðbanki í {}.".format(object_name))
             else:
-                dispatcher.utter_message("Það fannst enginn opnunartími í {}.".format(object_name))
+                dispatcher.utter_message("Ég fann engar niðurstöður")
 
+    # Overwrite utter_objects
     def utter_objects(
             self,
             dispatcher: CollectingDispatcher,
             object_type: Text,
             objects: List[Dict[Text, Any]],
+#            attribute_name: Text
         ) -> None:
             """
             Utters a response to the user that lists all found objects.
@@ -58,17 +66,20 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                 object_type: the object type
                 objects: the list of objects
             """
-          
+
+           # entity = next(tracker.get_latest_entity_values("location"), None)
+           # utter_message("location {}".format(entity))
             if objects:
-                if (len(objects)==25):
-                    dispatcher.utter_message("Það voru margar niðurstöður, hérna koma fyrstu 25")
-                else:
-                    dispatcher.utter_message("Hér eru niðurstöðurnar:")
-
-                repr_function = self.knowledge_base.get_representation_function_of_object(object_type)
-
-                for i, obj in enumerate(objects, 1):
-                    dispatcher.utter_message("{}: {}".format(i, repr_function(obj)))
+                if object_type == 'bank':
+                    repr_function = self.knowledge_base.get_representation_function_of_object(object_type)
+                    if (len(objects)>1):
+                        dispatcher.utter_message("Það eru nokkrir bankar")
+                        for i, obj in enumerate(objects, 1):
+                            dispatcher.utter_message("{}: {}".format(i, repr_function(obj)))
+                    else:
+                        dispatcher.utter_message("Það er einn")
+                        for i, obj in enumerate(objects, 1):
+                            dispatcher.utter_message("{}".format(repr_function(obj)))
             else:
                 dispatcher.utter_message("Fyrirgefðu ég fann enga {} á þessu svæði.".format(object_type))
 

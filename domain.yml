@@ -22,6 +22,7 @@ entities:
 - mention
 - attribute
 - bank
+- atm
 - location
 - opening_hours
 - exchange_rate
@@ -37,6 +38,8 @@ slots:
     type: unfeaturized
   location:
     type: unfeaturized
+  atm:
+    type: bool
   mention:
     type: unfeaturized
   object_type:
