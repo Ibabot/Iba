@@ -100,9 +100,11 @@
 - [110](amount) [dollarar](base:USD) í [evrur](rate:EUR)
 
 ## intent:query_geolocation
-- [64.153960](latitude) [-21.950570](longitude)
-- [64.000000](latitude) [-22.000000](longitude)
-- [30.000000](latitude) [-20.000000](longitude)
+- [64.1539630](latitude) [-21.950570](longitude)
+- [64.120677](latitude) [-21.8099861](longitude)
+- [63.786486](latitude) [-18.058027](longitude)
+- [64.000000](latitude) [-22.0000009](longitude)
+- [30.00200](latitude) [-20.09000](longitude)
 
 ## intent:query_search_banks
 - Hvar er ég?
@@ -110,10 +112,15 @@
 - Ég veit ekki hvar ég er
 - ég er týnd
 - Ég er týndur
-- 
 
 ## regex:amount
 - [0-9]*$
+
+## regex:longitude
+- ^-\d{2}(\.\d{5,6,7,8})?$
+
+## regex:latitude
+-  ^[+]?\d{2}(\.\d{5,6,7,8})?$ 
 
 ## lookup:rate
   data/lookup/currencies.txt

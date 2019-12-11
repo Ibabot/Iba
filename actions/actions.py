@@ -6,6 +6,15 @@ from rasa_sdk.executor import CollectingDispatcher
 from typing import Text, Callable, Dict, List, Any, Optional
 import requests
 import json
+import pandas as pd
+
+from math import cos, sqrt
+#https://stackoverflow.com/questions/46641706/given-a-lat-long-find-the-nearest-location-based-on-a-json-list-of-lat-long?rq=1
+R = 6371000 #radius of the Earth in m
+def distance(lon1, lat1, lon2, lat2):
+    x = (-float(lon2) - -float(lon1)) * cos(0.5*(float(lat2)+float(lat1)))
+    y = (float(lat2) - float(lat1))
+    return R * sqrt( x*x + y*y )
 
 # This files contains your custom actions which can be used to run
 # custom Python code.
@@ -141,24 +150,46 @@ class ActionExchangeRate(Action):
 
         return []
         
-# Action to get random Chuck Norris jokes
 class ActionSearchBanks(Action):
     def name(self) -> Text:
+      
         return "action_query_search_banks"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        """dispatcher.utter_custom_json(jsonString) """
-        """dispatcher.utter_message("Please allow me to access your location 🧐") """
+        latitude = tracker.get_slot('latitude')
+        longitude = tracker.get_slot('longitude')
+        banks = pd.read_json("./actions/bank_data.json", encoding = 'cp850')['bank']
+        # with open('./actions/bank_data.json', encoding = 'cp850') as myfile:
+        #     data = myfile.read()
+    
+        # #parse file
+        #     banks = json.loads(data)['bank']
+
+       
+        #print(sorted(banks, key = lambda d: distance(d['latitude'], d['longitude'], latitude, longitude)))
+        sortedlist = sorted(banks, key = lambda d: distance(d['longitude'], d['latitude'], longitude, latitude))[0]
+        #print(sortedlist[0])
+        dispatcher.utter_message("Næsti banki við þig er: {}".format(sortedlist["name"], sortedlist["location"], sortedlist["location"]))
+
+        # bustops = [{"BusStopCode": "00481", "RoadName": "Woodlands Rd", "Description": "BT PANJANG TEMP BUS PK", "Latitude": 1.383764, "Longitude": 103.7583},
+        # {"BusStopCode": "01012", "RoadName": "Victoria St", "Description": "Hotel Grand Pacific", "Latitude": 1.29684825487647, "Longitude": 103.85253591654006}]
+
+        # print(sorted(bustops, key= lambda d: distance(d["Longitude"], d["Latitude"], 103.5, 1.2)))
+
+        if latitude is not None and longitude is not None:
+            dispatcher.utter_message("Allow me to access your location 🧐")
+            dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
         ##FutureWarning: Use of `utter_custom_json` is deprecated. Use `utter_message(json_message=<message dict>)`
                 
-        if tracker.latest_action_name == "action_query_geolocation":
+        """ if tracker.latest_action_name == "action_query_geolocation":
             return []
         else:
             dispatcher.utter_template("utter_geolocation_template", tracker)
-            return [FollowupAction(name="action_query_geolocation")]
+            return [FollowupAction(name="action_query_geolocation")] """
+        return []
             
 
 # Action to get random Chuck Norris jokes
@@ -172,5 +203,10 @@ class ActionGeolocation(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message("Allow me to access your location 🧐")
+        latitude = tracker.get_slot('latitude')
+        longitude = tracker.get_slot('longitude')
 
+        if latitude is not None and longitude is not None:
+            dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
+        
         return []
