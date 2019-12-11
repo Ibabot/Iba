@@ -81,7 +81,7 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                         for i, obj in enumerate(objects, 1):
                             dispatcher.utter_message("{}".format(repr_function(obj)))
             else:
-                dispatcher.utter_message("Fyrirgefðu ég fann enga {} á þessu svæði.".format(object_type))
+                dispatcher.utter_message("Fyrirgefðu ég fann enga {}a á þessu svæði.".format(object_type))
 
 # Action to query exchange rate
 class ActionExchangeRate(Action):

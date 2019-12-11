@@ -92,36 +92,39 @@
 - Segðu mér eitthvað fyndið
 
 ## intent:query_knowledge_base
-- Hvaða [bankar](object_type:bank) eru í [Reykjavík](location)?
+- Hvaða [bankar](object_type:bank) eru í [reykjavík](location:Reykjavík)?
 - Hvaða [bankar](object_type:bank) eru í [Kópavogi](location:Kópavogur)?
 - hvaða [bankar](object_type:bank) eru á [Reyðarfirði](location:Reyðarfjörður)?
 - hvaða [bankar](object_type:bank) eru á [Vestmanneyjum](location:Vestmanneyjar)?
 - hvaða [útibú](object_type:bank) eru í [Hafnarfirði](location:Hafnarfjörður)?
-- Hvaða [útibú](object_type:bank) eru á [Egilsstöðum](location:Egilsstaðir)
+- Hvaða [útibú](object_type:bank) eru á [egilsstöðum](location:Egilsstaðir)
 - hvaða [útibú](object_type:bank) eru á [Húsavík](location)
-- Er [útibú](object_type:bank) á [Akranesi](location:Akranes)?
-- er [banki](object_type:bank) í [Hafnarfirði](location:Hafnarfjörður)?
+- Er [útibú](object_type:bank) á [akranesi](location:Akranes)?
+- er [banki](object_type:bank) í [hafnarfirði](location:Hafnarfjörður)?
 - er [útibú](object_type:bank) í [Reykjavík](location)
 - Er [banki](object_type:bank) á [Selfossi](location:Selfoss)
 - [Banki](object_type:bank) í [Reykjanesbæ](location:Reykjanesbæ)
+- [Útibú](object_type:bank) [vestmanneyjum](location:Vestmanneyjar)
 - En á [Akureyri](location)
-- En á [Ísafirði](location:Ísafjörður)?
+- En á [ísafirði](location:Ísafjörður)?
 - en á [Reyðarfirði](location:Reyðarfjörður)
-- en [Akranesi](location:Akranes)?
+- en [akranesi](location:Akranes)?
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Norðurturni](bank)?
 - Hvað eru [opnunartímar](attribute:opening_hours) á [Granda](bank)?
-- hvað eru [opnunartímar](attribute:opening_hours) í [Laugardal](bank)?
+- hvað eru [opnunartímar](attribute:opening_hours) í [laugardal](bank:Laugardal)?
 - Hvað eru [opnunartímar](attribute:opening_hours) í [Hafnarfirði](bank)?
 - Hvenær er [opið](attribute:opening_hours) á [Egilsstöðum](bank)?
 - hvenær er [opið](attribute:opening_hours) á [Reyðarfirði](bank)?
-- Hvenær er [opið](attribute:opening_hours) í [Húsavík](bank)?
-- [Opnunartími](attribute:opening_hours) [Reyðarfirði](bank)?
+- Hvenær er [opið](attribute:opening_hours) í [húsavík](bank:Húsavík)?
+- hvenær er [opið](attribute:opening_hours) í [granda](bank:Granda)?
+- [Opnunartími](attribute:opening_hours) [reyðarfirði](bank:Reyðarfirði)?
 - [Opnunartími](attribute:opening_hours) [Reyðarfjörður](bank:Reyðarfirði)?
 - [opnunartími](attribute:opening_hours) [Laugardal](bank)
 - er [opið](attribute:opening_hours)?
 - Er [opið](attribute:opening_hours) núna?
+- er [opið](attribute:opening_hours) þar?
 - Er [hraðbanki](attribute:atm) á [Reyðarfirði](bank)?
-- Er [hraðbanki](attribute:atm) í [Kópavogi](bank)
+- Er [hraðbanki](attribute:atm) í [kópavogi](bank:Kópavogi)
 - Er [Hraðbanki](attribute:atm) á [Akranesi](bank)?
 - er [hraðbanki](attribute:atm)?
 - Er [atm](attribute:atm)

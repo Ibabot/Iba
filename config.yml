@@ -1,7 +1,24 @@
 # Configuration for Rasa NLU.
 # https://rasa.com/docs/rasa/nlu/components/
 language: is
-pipeline: supervised_embeddings
+pipeline:
+- name: "WhitespaceTokenizer"
+  #case_sensitive: false
+- name: "RegexFeaturizer"
+- name: "CRFEntityExtractor"
+  # features: [
+  #             ["low", "upper"],
+  #             ["bias", "low", "prefix5", "prefix2", "suffix5", "suffix3",
+  #              "suffix2", "upper", "digit", "pattern"],
+  #             ["low", "upper"]
+  #           ]
+- name: "EntitySynonymMapper"
+- name: "CountVectorsFeaturizer"
+- name: "CountVectorsFeaturizer"
+  analyzer: "char_wb"
+  min_ngram: 1
+  max_ngram: 4
+- name: "EmbeddingIntentClassifier"
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
