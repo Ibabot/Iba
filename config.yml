@@ -6,18 +6,16 @@ pipeline:
  # case_sensitive: false
 - name: "RegexFeaturizer"
 - name: "CRFEntityExtractor"
-  features: [
-              ["low", "upper"],
-              ["bias", "low", "prefix5", "prefix2", "suffix5", "suffix3",
-               "suffix2", "upper", "digit", "pattern"],
-              ["low", "upper"]
-            ]
+  # features: [
+  #             ["low", "upper"],
+  #             ["bias", "low", "prefix5", "prefix2", "suffix5", "suffix3",
+  #              "suffix2", "upper", "digit", "pattern"],
+  #             ["low", "upper"]
+  #           ]
 - name: "EntitySynonymMapper"
 - name: "CountVectorsFeaturizer"
 - name: "CountVectorsFeaturizer"
-  analyzer: "char_wb"
-  min_ngram: 1
-  max_ngram: 4
+  # lowercase: true
 - name: "EmbeddingIntentClassifier"
 #case_sensitive: false
 

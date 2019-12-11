@@ -107,6 +107,10 @@
 - [30.00200](latitude) [-20.09000](longitude)
 
 ## intent:query_search_banks
+- Hvar er næsti banki við mig?
+- Næsti banki?
+- Banka
+- Hvar er næsti Íslandsbanki?
 - Hvar er ég?
 - hvar er ég
 - Ég veit ekki hvar ég er

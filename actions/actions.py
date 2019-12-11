@@ -168,7 +168,7 @@ class ActionSearchBanks(Action):
         # #parse file
         #     banks = json.loads(data)['bank']
 
-         if latitude is not None and longitude is not None:
+        if latitude is not None and longitude is not None:
             dispatcher.utter_message("Allow me to access your location 🧐")
             dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
        
