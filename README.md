@@ -19,14 +19,23 @@ This setup is originally made in the Windows 10 OS. If needed for another operat
 
 1. Overview of the files in the project
     `actions/actions.py` - contains custom actions code to implement more complex logical operations and connections to external services and APIs.
+
     `actions/bank_data.json` - contains the JSON with the current information of branches of Íslandsbanki.
+
     `data/lookup​` - contains lookup files to improve entity extraction.
-    `data/nlu` - contains the training data used for the classifications of intents and extracting entities from user input. 
+
+    `data/nlu` - contains the training data used for the classifications of intents and extracting entities from user input.
+
     `data/stories` - contains the possible conversation paths used to train Rasa’s dialogue management.
+
     `models/` - contains the trained models. The newest model is automatically used when running the bot.
+
     `domain.yml` ​- contains the domain, i.e. the brain of the bot (it specifies the intents, entities, slots, and actions your bot should know about) as well as response templates
+
     `config.yml​` - training configurations for the NLU pipeline and policy ensemble.
+
     `credentials.yml` - contains credentials for different services used and lists events to be captured and emitted by services that use it.
+
     `endpoints.yml` ​- contains the webhook configuration for the custom actions.
 
 
@@ -78,4 +87,4 @@ docker-compose up
 All changes made and pushed to master will automatically build and deploy to production on the website’s URL listed above.
 
 
-[^1] ​_[https://rasa.com/docs/rasa/user-guide/installation/](https://rasa.com/docs/rasa/user-guide/installation/)_
+[^1] [https://rasa.com/docs/rasa/user-guide/installation/](https://rasa.com/docs/rasa/user-guide/installation/)
