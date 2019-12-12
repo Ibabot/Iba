@@ -1,4 +1,4 @@
-# ​Íba Chatbot
+# ​Íba Chatbot ![](https://i.imgur.com/1r3U2ek.png "Íba")
 
 ## ​1.1.​ Setup
 
