@@ -116,13 +116,6 @@ templates:
   - text: Ég tala bara íslensku eins og er.
   utter_thanks_for_location:
   - text: Takk fyrir að leyfa mér að nálgast staðsetningu þína.
-  utter_location_unknown:
-  - text: No problem, I will search restaurants based on your current location, Please
-      allow me to access your location
-    custom:
-      payload: location
-  utter_geolocation_template:
-  - text: "Ok!"
 actions:
 - action_query_knowledge_base
 - action_query_exchange_rate
