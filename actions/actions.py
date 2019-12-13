@@ -207,13 +207,14 @@ class ActionSearchBanks(Action):
         most_recent = max(last_events, key=lambda e: e['timestamp'])
         longitude = most_recent["metadata"]["longitude"]
         latitude = most_recent["metadata"]["latitude"]
-      
+        
+        #print(banks)
         #read out banks from our bank_data.json file
-        banks = pd.read_json("./actions/bank_data.json", encoding = 'cp850')['bank']
+        banks = pd.read_json("./actions/bank_data.json", encoding = 'utf-8')['bank']
 
         #If latitude and longitude have been fetched the user has allowed for location
         if latitude is not None and longitude is not None:
-            dispatcher.utter_template("utter_thanks_for_location")
+            dispatcher.utter_template("utter_thanks_for_location", tracker)
             dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
        
             #print(sorted(banks, key = lambda d: distance(d['latitude'], d['longitude'], latitude, longitude)))
