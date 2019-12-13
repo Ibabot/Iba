@@ -183,7 +183,7 @@ class ActionSearchBanks(Action):
         #If latitude and longitude have been fetched the user has allowed for location
         if latitude is not None and longitude is not None:
             dispatcher.utter_template("utter_thanks_for_location", tracker)
-            print("Þú ert hér: {} {}".format(latitude, longitude))
+           #print("Þú ert hér: {} {}".format(latitude, longitude))
             sortedlist = sorted(banks, key = lambda d: distance(d['longitude'], d['latitude'], longitude, latitude))[0]
             dispatcher.utter_message("Næsti banki við þig er í:")
             dispatcher.utter_message("{}, {}, {}".format(sortedlist["name"], sortedlist["google_location"], sortedlist["location"]))
