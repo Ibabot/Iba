@@ -1,5 +1,6 @@
 ## first conversation
 * greet_first_time
+  - slot{"object_type": "bank"}
   - utter_greet_first_time
 
 ## ask about help

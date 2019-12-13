@@ -48,6 +48,7 @@ slots:
     type: unfeaturized
   object_type:
     type: unfeaturized
+    initial_value: "bank"
   opening_hours:
     type: unfeaturized
   postcode:
@@ -137,4 +138,3 @@ actions:
 - utter_handle_insult
 - utter_ask_languagesbot
 - utter_thanks_for_location
-- utter_location_unknown
