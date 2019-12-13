@@ -7,7 +7,7 @@ RUN pip3 install rasa==1.5.1
 ADD ./models /app/models/
 ADD ./actions /app/actions/
 ADD ./scripts /app/scripts/
-ADD ./ /app/config/
+ADD ./ /
 
 # # Don't run as root
 # USER 1001

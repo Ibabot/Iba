@@ -32,9 +32,6 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
         knowledge_base.set_representation_function_of_object(
             "bank", lambda obj: obj["name"] + ", " + obj["google_location"] + " (" + obj["location"] + ")"
         )
-         knowledge_base.set_representation_function_of_object(
-            "atm", lambda obj: obj["descriptive_name"] + ", " + obj["google_location"] + " (" + obj["location"] + ")"
-        )
 
         super().__init__(knowledge_base)
     
@@ -97,28 +94,6 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                             dispatcher.utter_message("{}".format(repr_function(obj)))
             else:
                 dispatcher.utter_message("Fyrirgefðu ég fann enga {}a á þessu svæði.".format(object_type))
-
-# Action to get random Chuck Norris jokes
-class ActionChuckNorris(Action):
-
-    def name(self) -> Text:
-        return "action_query_chuck_norris"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        r = requests.get('https://api.chucknorris.io/jokes/random')
-        response = r.text
-        jokes = json.loads(response)
-
-        if (jokes["value"]):
-            reply = jokes["value"]
-            dispatcher.utter_message("Hér er brandarinn: \n {}".format(reply))
-        else:
-            dispatcher.utter_message("Ég er ekki fyndinn.")
-
-        return []
 
 # Action to get random Chuck Norris jokes
 class ActionChuckNorris(Action):
