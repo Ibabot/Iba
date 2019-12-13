@@ -18,6 +18,7 @@ intents:
 - query_knowledge_base
 - query_exchange_rate
 - query_search_banks
+- query_search_ATM
 - query_geolocation
 entities:
 - object_type
@@ -128,6 +129,7 @@ actions:
 - action_query_exchange_rate
 - action_query_chuck_norris
 - action_query_search_banks
+- action_query_search_ATM
 - action_query_geolocation
 - utter_greet
 - utter_greet_first_time

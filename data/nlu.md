@@ -201,6 +201,19 @@
 - Ég veit ekki hvar ég er
 - ég er týnd
 - Ég er týndur
+- Banki
+
+## intent:query_search_ATM
+- Hvar er næsti hraðbanki við mig?
+- Næsti atm?
+- Hraðbanki
+- Hvar er næsti hraðbanki?
+- Hver er næsti ATM?
+- Hvar finn ég hraðbanka?
+- Mig vantar að taka út pening
+- taka út pening
+- Peninga
+- Hvar fæ ég peninga
 
 ## regex:amount
 - [0-9]*$

@@ -28,6 +28,10 @@
 * query_exchange_rate
   - action_query_exchange_rate
 
+## query search ATM
+* query_search_ATM
+  - action_query_search_ATM
+
 ## query chuck norris
 * query_chuck_norris
   - action_query_chuck_norris

@@ -202,7 +202,43 @@ class ActionSearchBanks(Action):
             dispatcher.utter_message("Næsti banki við þig er í:")
             dispatcher.utter_message("{}, {}, {}".format(sortedlist["name"], sortedlist["google_location"], sortedlist["location"]))
         else:
-            dispatcher.utter_message("Þú hefur ekki leyft okkur að nálgast staðsetningu þína..")
+            dispatcher.utter_message("Þú hefur ekki leyft okkur að nálgast staðsetningu þína...")
+       
+        return []
+
+class ActionSearchATM(Action):
+    def name(self) -> Text:
+      
+        return "action_query_search_ATM"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # use tracker to get last events metadata sent from front-end
+        # metadata includes longitude and latitude of user if allowed
+        state = tracker.current_state()
+        last_events = state.get("events")
+        most_recent = max(last_events, key=lambda e: e['timestamp'])
+        longitude = most_recent["metadata"]["longitude"]
+        latitude = most_recent["metadata"]["latitude"]
+        
+        #print(banks)
+        #read out banks from our bank_data.json file
+        atm = pd.read_json("./actions/bank_data.json", encoding = 'utf-8')['atm']
+
+        #If latitude and longitude have been fetched the user has allowed for location
+        if latitude is not None and longitude is not None:
+            dispatcher.utter_template("utter_thanks_for_location", tracker)
+            dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
+       
+            #print(sorted(banks, key = lambda d: distance(d['latitude'], d['longitude'], latitude, longitude)))
+            sortedlist = sorted(atm, key = lambda d: distance(d['longitude'], d['latitude'], longitude, latitude))[0]
+            #print(sortedlist[0])
+            dispatcher.utter_message("Næsti banki við þig er í:")
+            dispatcher.utter_message("{}, {}, {}".format(sortedlist["name"], sortedlist["google_location"], sortedlist["location"]))
+        else:
+            dispatcher.utter_message("Þú hefur ekki leyft okkur að nálgast staðsetningu þína...")
        
         return []
             
