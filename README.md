@@ -77,14 +77,4 @@ $ docker run -v ​$(pwd)/​models:/app/models rasa/rasa:1.5.1 run
 docker-compose up
 ```
 
-## ​1.3.​ Deployment
-
-1. When new code is pushed to the master on Ibabot’s repository, the CI server (Heroku) automatically builds and deploys the project. If the build succeeds, the
-    changes are pushed to the core Rasa server ​[https://ibachatbot.heroku.com](​https://ibachatbot.heroku.com) along with the Rasa Action server [https://rasibabot.heroku.com](https://rasibabot.heroku.com).
-    Heroku will take in the Dockerfiles and assemble the images to run both servers (action and core). This process is done automatically, and can be edited in the
-    `heroku.yml.`
-
-All changes made and pushed to master will automatically build and deploy to production on the website’s URL listed above.
-
-
 [^1] [https://rasa.com/docs/rasa/user-guide/installation/](https://rasa.com/docs/rasa/user-guide/installation/)

@@ -132,6 +132,7 @@
 - Er [hraðbanki](attribute:atm) í [Kópavogi](bank)
 - En á [Ísafirði](bank)?
 - en á [Reyðarfirði](bank)
+- en [selfossi](bank:Selfossi)
 
 ## intent:query_exchange_rate
 - [89876](amount) [danskar](base:DKK) í [krónur](rate:ISK)
@@ -183,13 +184,6 @@
 - Evra
 - evrum
 
-## intent:query_geolocation
-- [64.1539630](latitude) [-21.950570](longitude)
-- [64.120677](latitude) [-21.8099861](longitude)
-- [63.786486](latitude) [-18.058027](longitude)
-- [64.000000](latitude) [-22.0000009](longitude)
-- [30.00200](latitude) [-20.09000](longitude)
-
 ## intent:query_search_banks
 - Hvar er næsti banki við mig?
 - Næsti banki?
@@ -201,6 +195,10 @@
 - Ég veit ekki hvar ég er
 - ég er týnd
 - Ég er týndur
+- Íslandsbanki
+- íslandsbanki
+- Ég þarf að komast í banka
+- banki
 
 ## regex:amount
 - [0-9]*$
@@ -249,6 +247,11 @@
 - kærar þakkir
 - flott, takk
 - flott, takk fyrir
+- ok
+- flott takk
+- kærar þakkir
+- þú ert frábær
+- þú ert æði
 
 ## intent:help
 - Hjálp
@@ -262,3 +265,4 @@
 - hvernig nota ég þetta
 - Ég skil þig ekki
 - ég skil ekki hvernig þetta virkar
+- Getur þú plís hjálpað mér

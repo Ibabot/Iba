@@ -9,7 +9,7 @@ import requests
 import json
 import pandas as pd
 
-##put this elsewhere in some python file or something?
+#find nearest location based on coordinates to use in nearest bank
 from math import cos, sqrt
 #https://stackoverflow.com/questions/46641706/given-a-lat-long-find-the-nearest-location-based-on-a-json-list-of-lat-long?rq=1
 R = 6371000 #radius of the Earth in m
@@ -18,16 +18,9 @@ def distance(lon1, lat1,  lon2, lat2):
     y = (float(lat2) - float(lat1))
     return R * sqrt( x*x + y*y )
 
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/core/actions/#custom-actions/
-
 # KnowledgeBase from Rasa documentation
 class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
     def __init__(self):
-        #knowledge_base = InMemoryKnowledgeBase("./app/actions/bank_data.json")
         knowledge_base = InMemoryKnowledgeBase("./actions/bank_data.json")
         knowledge_base.set_representation_function_of_object(
             "bank", lambda obj: obj["name"] + ", " + obj["google_location"] + " (" + obj["location"] + ")"
@@ -35,7 +28,7 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
 
         super().__init__(knowledge_base)
     
-    # Overwrite utteractions
+    # Overwrite how attributes are written
     def utter_attribute_value(
             self,
             dispatcher: CollectingDispatcher,
@@ -69,7 +62,6 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
             dispatcher: CollectingDispatcher,
             object_type: Text,
             objects: List[Dict[Text, Any]],
-#            attribute_name: Text
         ) -> None:
             """
             Utters a response to the user that lists all found objects.
@@ -78,9 +70,6 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
                 object_type: the object type
                 objects: the list of objects
             """
-
-           # entity = next(tracker.get_latest_entity_values("location"), None)
-           # utter_message("location {}".format(entity))
             if objects:
                 if object_type == 'bank':
                     repr_function = self.knowledge_base.get_representation_function_of_object(object_type)
@@ -121,6 +110,7 @@ class ActionChuckNorris(Action):
 class ActionExchangeRate(Action):
 
     def name(self) -> Text:
+
         return "action_query_exchange_rate"
 
     def run(self, dispatcher: CollectingDispatcher,
@@ -187,18 +177,14 @@ class ActionSearchBanks(Action):
         longitude = most_recent["metadata"]["longitude"]
         latitude = most_recent["metadata"]["latitude"]
         
-        #print(banks)
         #read out banks from our bank_data.json file
         banks = pd.read_json("./actions/bank_data.json", encoding = 'utf-8')['bank']
 
         #If latitude and longitude have been fetched the user has allowed for location
         if latitude is not None and longitude is not None:
             dispatcher.utter_template("utter_thanks_for_location", tracker)
-            dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
-       
-            #print(sorted(banks, key = lambda d: distance(d['latitude'], d['longitude'], latitude, longitude)))
+            print("Þú ert hér: {} {}".format(latitude, longitude))
             sortedlist = sorted(banks, key = lambda d: distance(d['longitude'], d['latitude'], longitude, latitude))[0]
-            #print(sortedlist[0])
             dispatcher.utter_message("Næsti banki við þig er í:")
             dispatcher.utter_message("{}, {}, {}".format(sortedlist["name"], sortedlist["google_location"], sortedlist["location"]))
         else:
@@ -206,24 +192,3 @@ class ActionSearchBanks(Action):
        
         return []
             
-
-# # Action to get random Chuck Norris jokes
-# class ActionGeolocation(Action):
-
-#     def name(self) -> Text:
-#         return "action_query_geolocation"
-
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-#         dispatcher.utter_message("Leyfðu mér að nálgast staðsetningu þína🧐")
-#         latitude = tracker.get_slot('latitude')
-#         longitude = tracker.get_slot('longitude')
-
-#         if latitude is not None and longitude is not None:
-#             dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
-#         dispatcher.utter_template("utter_geolocation_template", tracker)
-        
-#         return [SlotSet("latitude", latitude)]
-#         #return [FollowupAction(name="action_query_search_banks")]
