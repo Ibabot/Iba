@@ -9,6 +9,7 @@ import requests
 import json
 import pandas as pd
 
+##put this elsewhere in some python file or something?
 from math import cos, sqrt
 #https://stackoverflow.com/questions/46641706/given-a-lat-long-find-the-nearest-location-based-on-a-json-list-of-lat-long?rq=1
 R = 6371000 #radius of the Earth in m
@@ -30,6 +31,9 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
         knowledge_base = InMemoryKnowledgeBase("./actions/bank_data.json")
         knowledge_base.set_representation_function_of_object(
             "bank", lambda obj: obj["name"] + ", " + obj["google_location"] + " (" + obj["location"] + ")"
+        )
+         knowledge_base.set_representation_function_of_object(
+            "atm", lambda obj: obj["descriptive_name"] + ", " + obj["google_location"] + " (" + obj["location"] + ")"
         )
 
         super().__init__(knowledge_base)
