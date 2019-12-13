@@ -14,11 +14,9 @@ pipeline:
   #           ]
 - name: "EntitySynonymMapper"
 - name: "CountVectorsFeaturizer"
-- name: "CountVectorsFeaturizer"
-  analyzer: "char_wb"
-  min_ngram: 1
-  max_ngram: 4
+  # lowercase: true
 - name: "EmbeddingIntentClassifier"
+#case_sensitive: false
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/

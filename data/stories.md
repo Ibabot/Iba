@@ -32,6 +32,19 @@
 * query_chuck_norris
   - action_query_chuck_norris
 
+## query search banks
+* query_search_banks
+  - action_query_search_banks
+<!--* inform {"latitude":"64.153960","longitude":"-21.950570"}
+  - utter_thanks_for_location
+  - action_query_search_banks-->
+
+## query geolocation
+* query_geolocation{"latitude":"64.153960","longitude":"-21.950570"}
+  - slot{"latitude":"64.153960"}
+  - slot {"longitude":"-21.950570"}
+  - action_query_geolocation
+
 ## sad path 1
 * greet
   - utter_greet

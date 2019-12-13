@@ -1,10 +1,21 @@
 from rasa_sdk.knowledge_base.storage import InMemoryKnowledgeBase
 from rasa_sdk import Action, Tracker
+from rasa_sdk.events import FollowupAction, ConversationPaused, ConversationResumed, SlotSet
 from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
 from rasa_sdk.executor import CollectingDispatcher
 from typing import Text, Callable, Dict, List, Any, Optional
+from rasa.core.slots import Slot
 import requests
 import json
+import pandas as pd
+
+from math import cos, sqrt
+#https://stackoverflow.com/questions/46641706/given-a-lat-long-find-the-nearest-location-based-on-a-json-list-of-lat-long?rq=1
+R = 6371000 #radius of the Earth in m
+def distance(lon1, lat1,  lon2, lat2):
+    x = (-float(lon2) - -float(lon1)) * cos(0.5*(float(lat2)+float(lat1)))
+    y = (float(lat2) - float(lat1))
+    return R * sqrt( x*x + y*y )
 
 # This files contains your custom actions which can be used to run
 # custom Python code.
@@ -105,6 +116,28 @@ class ActionChuckNorris(Action):
 
         return []
 
+# Action to get random Chuck Norris jokes
+class ActionChuckNorris(Action):
+
+    def name(self) -> Text:
+        return "action_query_chuck_norris"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        r = requests.get('https://api.chucknorris.io/jokes/random')
+        response = r.text
+        jokes = json.loads(response)
+
+        if (jokes["value"]):
+            reply = jokes["value"]
+            dispatcher.utter_message("Hér er brandarinn: \n {}".format(reply))
+        else:
+            dispatcher.utter_message("Ég er ekkert fyndið í dag.")
+
+        return []
+
 # Action to query exchange rate
 class ActionExchangeRate(Action):
 
@@ -157,3 +190,60 @@ class ActionExchangeRate(Action):
             dispatcher.utter_message("Fannst ekki í gögnum")
 
         return []
+        
+class ActionSearchBanks(Action):
+    def name(self) -> Text:
+      
+        return "action_query_search_banks"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # use tracker to get last events metadata sent from front-end
+        # metadata includes longitude and latitude of user if allowed
+        state = tracker.current_state()
+        last_events = state.get("events")
+        most_recent = max(last_events, key=lambda e: e['timestamp'])
+        longitude = most_recent["metadata"]["longitude"]
+        latitude = most_recent["metadata"]["latitude"]
+      
+        #read out banks from our bank_data.json file
+        banks = pd.read_json("./actions/bank_data.json", encoding = 'cp850')['bank']
+
+        #If latitude and longitude have been fetched the user has allowed for location
+        if latitude is not None and longitude is not None:
+            dispatcher.utter_message("Þú hefur leyft mér að nálgast staðsetningu þína")
+            dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
+       
+            #print(sorted(banks, key = lambda d: distance(d['latitude'], d['longitude'], latitude, longitude)))
+            sortedlist = sorted(banks, key = lambda d: distance(d['longitude'], d['latitude'], longitude, latitude))[0]
+            #print(sortedlist[0])
+            dispatcher.utter_message("Næsti banki við þig er í:")
+            dispatcher.utter_message("{}, {}, {}".format(sortedlist["name"], sortedlist["google_location"], sortedlist["location"]))
+        else:
+            dispatcher.utter_message("Þú hefur ekki leyft okkur að nálgast staðsetningu þína..")
+       
+        return []
+            
+
+# Action to get random Chuck Norris jokes
+class ActionGeolocation(Action):
+
+    def name(self) -> Text:
+        return "action_query_geolocation"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message("Leyfðu mér að nálgast staðsetningu þína🧐")
+        latitude = tracker.get_slot('latitude')
+        longitude = tracker.get_slot('longitude')
+
+        if latitude is not None and longitude is not None:
+            dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
+        dispatcher.utter_template("utter_geolocation_template", tracker)
+        
+        return [SlotSet("latitude", latitude)]
+        #return [FollowupAction(name="action_query_search_banks")]

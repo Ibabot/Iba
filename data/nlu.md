@@ -93,7 +93,7 @@
 
 ## intent:query_knowledge_base
 - Hvaða [bankar](object_type:bank) eru í [reykjavík](location:Reykjavík)?
-- Hvaða [bankar](object_type:bank) eru í [Kópavogi](location:Kópavogur)?
+- Hvaða [Íslandsbankar](object_type:bank) eru í [Kópavogi](location:Kópavogur)?
 - hvaða [bankar](object_type:bank) eru á [Reyðarfirði](location:Reyðarfjörður)?
 - hvaða [bankar](object_type:bank) eru á [Vestmanneyjum](location:Vestmanneyjar)?
 - hvaða [útibú](object_type:bank) eru í [Hafnarfirði](location:Hafnarfjörður)?
@@ -102,7 +102,7 @@
 - Er [útibú](object_type:bank) á [akranesi](location:Akranes)?
 - er [banki](object_type:bank) í [hafnarfirði](location:Hafnarfjörður)?
 - er [útibú](object_type:bank) í [Reykjavík](location)
-- Er [banki](object_type:bank) á [Selfossi](location:Selfoss)
+- Er [Íslandsbanki](object_type:bank) á [Selfossi](location:Selfoss)
 - [Banki](object_type:bank) í [Reykjanesbæ](location:Reykjanesbæ)
 - [Útibú](object_type:bank) [vestmanneyjum](location:Vestmanneyjar)
 - En á [Akureyri](location)
@@ -124,16 +124,17 @@
 - Er [opið](attribute:opening_hours) núna?
 - er [opið](attribute:opening_hours) þar?
 - Er [hraðbanki](attribute:atm) á [Reyðarfirði](bank)?
-- Er [hraðbanki](attribute:atm) í [kópavogi](bank:Kópavogi)
+- Er [hraðbanki](attribute:atm) í [kópavogi](bank:Norðurturni)
 - Er [Hraðbanki](attribute:atm) á [Akranesi](bank)?
 - er [hraðbanki](attribute:atm)?
 - Er [atm](attribute:atm)
 - Er [hraðbanki](attribute:atm) á [Reyðarfirði](bank)?
 - Er [hraðbanki](attribute:atm) í [Kópavogi](bank)
 - En á [Ísafirði](bank)?
-- en á [Reyðarfirði](location:Reyðarfjörður)
+- en á [Reyðarfirði](bank)
 
 ## intent:query_exchange_rate
+- [89876](amount) [danskar](base:DKK) í [krónur](rate:ISK)
 - Hvað er gengið í [USD](rate)?
 - hvað er gengið í [EUR](rate)
 - hvað er gengið í [dkk](rate)?
@@ -149,7 +150,7 @@
 - Breyta [10](amount) [evrum](base:EUR) í [krónur](rate:ISK)?
 - breyta [398](amount) [dönskum](base:DKK) í [Íslenskar](rate:ISK)
 - [89876](amount) [danskar](base:DKK) í [krónur](rate:ISK)
-- [110](amount) [íslenskar](base:IS) í [Evrur](rate:EUR)
+- [110](amount) [íslenskar](base:ISK) í [Evrur](rate:EUR)
 - [11390](amount) [dollarar](base:USD) í [evrur](rate:EUR)
 - [50000](amount) [isk](base:ISK) í [try](rate)
 - En [10000](amount)
@@ -181,6 +182,25 @@
 - evrur
 - Evra
 - evrum
+
+## intent:query_geolocation
+- [64.1539630](latitude) [-21.950570](longitude)
+- [64.120677](latitude) [-21.8099861](longitude)
+- [63.786486](latitude) [-18.058027](longitude)
+- [64.000000](latitude) [-22.0000009](longitude)
+- [30.00200](latitude) [-20.09000](longitude)
+
+## intent:query_search_banks
+- Hvar er næsti banki við mig?
+- Næsti banki?
+- Banka
+- Hvar er næsti Íslandsbanki?
+- Hver er næsti banki?
+- Hvar er ég?
+- hvar er ég
+- Ég veit ekki hvar ég er
+- ég er týnd
+- Ég er týndur
 
 ## regex:amount
 - [0-9]*$

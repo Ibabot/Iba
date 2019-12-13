@@ -12,11 +12,13 @@ intents:
 - ask_builder
 - handle_insult
 - ask_languages_bot
+- bank_data
+- help
 - query_chuck_norris
 - query_knowledge_base
 - query_exchange_rate
-- bank_data
-- help
+- query_search_banks
+- query_geolocation
 entities:
 - object_type
 - mention
@@ -29,6 +31,8 @@ entities:
 - amount
 - rate
 - base
+- longitude
+- latitude
 slots:
   address:
     type: unfeaturized
@@ -51,6 +55,10 @@ slots:
   rate:
     type: unfeaturized
   base:
+    type: unfeaturized
+  latitude:
+    type: unfeaturized
+  longitude:
     type: unfeaturized
 templates:
   utter_greet:
@@ -106,10 +114,21 @@ templates:
   - text: Þetta var ekki fallegt 😢
   utter_ask_languagesbot:
   - text: Ég tala bara íslensku eins og er.
+  utter_thanks_for_location:
+  - text: Takk fyrir að leyfa mér að nálgast staðsetningu þína.
+  utter_location_unknown:
+  - text: No problem, I will search restaurants based on your current location, Please
+      allow me to access your location
+    custom:
+      payload: location
+  utter_geolocation_template:
+  - text: "Ok!"
 actions:
 - action_query_knowledge_base
 - action_query_exchange_rate
 - action_query_chuck_norris
+- action_query_search_banks
+- action_query_geolocation
 - utter_greet
 - utter_greet_first_time
 - utter_help
@@ -124,3 +143,5 @@ actions:
 - utter_ask_builder
 - utter_handle_insult
 - utter_ask_languagesbot
+- utter_thanks_for_location
+- utter_location_unknown

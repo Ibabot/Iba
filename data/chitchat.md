@@ -110,7 +110,7 @@
 ## intent:handle_insult
 - allt í lagi þegiðu
 - barn veit meira en þú
-- Ég get ekki trúað því hversu heimskur þú ert
+- Ég get ekki trúað því hversu heimskur þú et
 - Ég hata heimska andlitið þitt
 - ég hata þig
 - ertu heiladauður?
