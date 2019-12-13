@@ -213,7 +213,7 @@ class ActionSearchBanks(Action):
 
         #If latitude and longitude have been fetched the user has allowed for location
         if latitude is not None and longitude is not None:
-            dispatcher.utter_message("Þú hefur leyft mér að nálgast staðsetningu þína")
+            dispatcher.utter_template("utter_thanks_for_location")
             dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
        
             #print(sorted(banks, key = lambda d: distance(d['latitude'], d['longitude'], latitude, longitude)))
@@ -227,23 +227,23 @@ class ActionSearchBanks(Action):
         return []
             
 
-# Action to get random Chuck Norris jokes
-class ActionGeolocation(Action):
+# # Action to get random Chuck Norris jokes
+# class ActionGeolocation(Action):
 
-    def name(self) -> Text:
-        return "action_query_geolocation"
+#     def name(self) -> Text:
+#         return "action_query_geolocation"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message("Leyfðu mér að nálgast staðsetningu þína🧐")
-        latitude = tracker.get_slot('latitude')
-        longitude = tracker.get_slot('longitude')
+#         dispatcher.utter_message("Leyfðu mér að nálgast staðsetningu þína🧐")
+#         latitude = tracker.get_slot('latitude')
+#         longitude = tracker.get_slot('longitude')
 
-        if latitude is not None and longitude is not None:
-            dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
-        dispatcher.utter_template("utter_geolocation_template", tracker)
+#         if latitude is not None and longitude is not None:
+#             dispatcher.utter_message("Þú ert hér: {} {}".format(latitude, longitude))
+#         dispatcher.utter_template("utter_geolocation_template", tracker)
         
-        return [SlotSet("latitude", latitude)]
-        #return [FollowupAction(name="action_query_search_banks")]
+#         return [SlotSet("latitude", latitude)]
+#         #return [FollowupAction(name="action_query_search_banks")]
